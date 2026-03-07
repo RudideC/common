@@ -1,6 +1,6 @@
-package org.saturnclient.common.minecraft;
+package org.saturnclient.common;
 
-import org.saturnclient.common.minecraft.bindings.SaturnIdentifier;
+import org.saturnclient.common.bindings.SaturnIdentifier;
 import org.saturnclient.ui.SaturnScreen;
 
 import java.awt.image.BufferedImage;

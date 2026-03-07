@@ -2,7 +2,7 @@ package org.saturnclient.ui.screens;
 
 import org.saturnclient.cosmetics.Emotes;
 import org.saturnclient.client.ServiceClient;
-import org.saturnclient.common.minecraft.bindings.SaturnClientBindings;
+import org.saturnclient.common.bindings.SaturnClientBindings;
 import org.saturnclient.config.AnimationConfig;
 import org.saturnclient.config.Config;
 import org.saturnclient.ui.SaturnScreen;

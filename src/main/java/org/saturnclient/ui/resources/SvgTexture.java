@@ -10,9 +10,9 @@ import java.util.List;
 import com.kitfox.svg.SVGDiagram;
 import com.kitfox.svg.SVGUniverse;
 
-import org.saturnclient.common.minecraft.IMinecraftClient;
-import org.saturnclient.common.minecraft.MinecraftProvider;
-import org.saturnclient.common.minecraft.bindings.SaturnIdentifier;
+import org.saturnclient.common.IMinecraftClient;
+import org.saturnclient.common.MinecraftProvider;
+import org.saturnclient.common.bindings.SaturnIdentifier;
 
 public class SvgTexture {
 

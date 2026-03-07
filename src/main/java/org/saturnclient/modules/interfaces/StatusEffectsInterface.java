@@ -1,7 +1,7 @@
 package org.saturnclient.modules.interfaces;
 
 import java.util.List;
-import org.saturnclient.common.minecraft.bindings.SaturnSprite;
+import org.saturnclient.common.bindings.SaturnSprite;
 
 public interface StatusEffectsInterface {
 
@@ -27,10 +27,24 @@ public interface StatusEffectsInterface {
             this.infiniteText = infiniteText;
         }
 
-        public SaturnSprite getIcon() { return icon; }
-        public int getDurationSeconds() { return durationSeconds; }
-        public boolean isInfinite() { return infinite; }
-        public boolean shouldShowIcon() { return showIcon; }
-        public String getInfiniteText() { return infiniteText; }
+        public SaturnSprite getIcon() {
+            return icon;
+        }
+
+        public int getDurationSeconds() {
+            return durationSeconds;
+        }
+
+        public boolean isInfinite() {
+            return infinite;
+        }
+
+        public boolean shouldShowIcon() {
+            return showIcon;
+        }
+
+        public String getInfiniteText() {
+            return infiniteText;
+        }
     }
 }

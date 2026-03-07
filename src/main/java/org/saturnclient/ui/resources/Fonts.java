@@ -1,7 +1,7 @@
 package org.saturnclient.ui.resources;
 
-import org.saturnclient.common.minecraft.MinecraftProvider;
-import org.saturnclient.common.minecraft.bindings.SaturnIdentifier;
+import org.saturnclient.common.MinecraftProvider;
+import org.saturnclient.common.bindings.SaturnIdentifier;
 
 public class Fonts {
     public static final SaturnIdentifier INTER = SaturnIdentifier.of("saturnclient", "inter");

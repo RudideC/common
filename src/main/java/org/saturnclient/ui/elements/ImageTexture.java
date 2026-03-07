@@ -1,8 +1,8 @@
 package org.saturnclient.ui.elements;
 
-import org.saturnclient.common.minecraft.IMinecraftClient;
-import org.saturnclient.common.minecraft.MinecraftProvider;
-import org.saturnclient.common.minecraft.bindings.SaturnIdentifier;
+import org.saturnclient.common.IMinecraftClient;
+import org.saturnclient.common.MinecraftProvider;
+import org.saturnclient.common.bindings.SaturnIdentifier;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;
 import org.saturnclient.ui.RenderScope;

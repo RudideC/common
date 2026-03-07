@@ -1,6 +1,6 @@
 package org.saturnclient.modules.interfaces;
 
-import org.saturnclient.common.minecraft.bindings.SaturnItemStack;
+import org.saturnclient.common.bindings.SaturnItemStack;
 
 public interface ArmorDisplayInterface {
 

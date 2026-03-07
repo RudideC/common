@@ -1,10 +1,10 @@
-package org.saturnclient.common.minecraft;
+package org.saturnclient.common;
 
 import java.io.File;
 import java.io.InputStream;
 
-import org.saturnclient.common.minecraft.bindings.SaturnIdentifier;
-import org.saturnclient.common.minecraft.render.IWindow;
+import org.saturnclient.common.bindings.SaturnIdentifier;
+import org.saturnclient.common.render.IWindow;
 
 public interface IMinecraftClient {
 

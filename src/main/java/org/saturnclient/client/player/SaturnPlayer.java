@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import org.saturnclient.common.minecraft.bindings.SaturnClientBindings;
+import org.saturnclient.common.bindings.SaturnClientBindings;
 
 public class SaturnPlayer {
     private static Map<UUID, SaturnPlayer> PLAYERS = new HashMap<>();

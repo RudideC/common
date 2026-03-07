@@ -5,7 +5,7 @@ import org.saturnclient.modules.ModDimensions;
 import org.saturnclient.modules.Module;
 import org.saturnclient.modules.ModuleDetails;
 import org.saturnclient.modules.interfaces.ArmorDisplayInterface;
-import org.saturnclient.common.minecraft.bindings.SaturnItemStack;
+import org.saturnclient.common.bindings.SaturnItemStack;
 import org.saturnclient.config.manager.Property;
 import org.saturnclient.ui.RenderScope;
 

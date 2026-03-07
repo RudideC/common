@@ -4,7 +4,7 @@ import org.saturnclient.modules.HudMod;
 import org.saturnclient.modules.ModDimensions;
 import org.saturnclient.modules.ModManager;
 import org.saturnclient.modules.Module;
-import org.saturnclient.common.minecraft.render.IMatrixStack;
+import org.saturnclient.common.render.IMatrixStack;
 import org.saturnclient.config.manager.ConfigManager;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.SaturnScreen;

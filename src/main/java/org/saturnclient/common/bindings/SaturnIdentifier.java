@@ -1,7 +1,7 @@
-package org.saturnclient.common.minecraft.bindings;
+package org.saturnclient.common.bindings;
 
-import org.saturnclient.common.minecraft.MinecraftBinding;
-import org.saturnclient.common.minecraft.MinecraftProvider;
+import org.saturnclient.common.MinecraftBinding;
+import org.saturnclient.common.MinecraftProvider;
 
 public class SaturnIdentifier extends MinecraftBinding {
     public SaturnIdentifier(String namespace, String path) {

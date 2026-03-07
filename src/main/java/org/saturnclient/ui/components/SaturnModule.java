@@ -1,7 +1,7 @@
 package org.saturnclient.ui.components;
 
 import org.saturnclient.modules.Module;
-import org.saturnclient.common.minecraft.MinecraftProvider;
+import org.saturnclient.common.MinecraftProvider;
 import org.saturnclient.config.Theme;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;

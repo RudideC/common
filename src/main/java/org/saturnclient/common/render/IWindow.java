@@ -1,4 +1,4 @@
-package org.saturnclient.common.minecraft.render;
+package org.saturnclient.common.render;
 
 public interface IWindow {
     public int getWidth();

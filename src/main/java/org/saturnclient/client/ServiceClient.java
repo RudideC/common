@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.saturnclient.client.player.SaturnPlayer;
-import org.saturnclient.common.minecraft.bindings.SaturnClientBindings;
+import org.saturnclient.common.bindings.SaturnClientBindings;
 
 import dev.selimaj.session.Session;
 

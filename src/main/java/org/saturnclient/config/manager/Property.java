@@ -3,9 +3,10 @@ package org.saturnclient.config.manager;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import org.saturnclient.common.minecraft.MinecraftProvider;
 
 import java.util.Map;
+
+import org.saturnclient.common.MinecraftProvider;
 
 public class Property<T> {
 

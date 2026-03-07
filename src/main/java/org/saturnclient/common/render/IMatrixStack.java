@@ -1,6 +1,6 @@
-package org.saturnclient.common.minecraft.render;
+package org.saturnclient.common.render;
 
-import org.saturnclient.common.minecraft.bindings.SaturnQuaternionf;
+import org.saturnclient.common.bindings.SaturnQuaternionf;
 
 public interface IMatrixStack {
     public void translate(double x, double y, double z);

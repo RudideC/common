@@ -1,6 +1,6 @@
 package org.saturnclient.ui.components.inputs;
 
-import org.saturnclient.common.minecraft.MinecraftProvider;
+import org.saturnclient.common.MinecraftProvider;
 import org.saturnclient.config.Theme;
 import org.saturnclient.config.manager.Key;
 import org.saturnclient.config.manager.Property;

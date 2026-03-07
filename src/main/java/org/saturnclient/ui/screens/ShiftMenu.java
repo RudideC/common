@@ -1,6 +1,6 @@
 package org.saturnclient.ui.screens;
 
-import org.saturnclient.common.minecraft.MinecraftProvider;
+import org.saturnclient.common.MinecraftProvider;
 import org.saturnclient.config.AnimationConfig;
 import org.saturnclient.config.Config;
 import org.saturnclient.ui.SaturnScreen;

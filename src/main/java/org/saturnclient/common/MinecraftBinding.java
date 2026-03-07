@@ -1,4 +1,4 @@
-package org.saturnclient.common.minecraft;
+package org.saturnclient.common;
 
 public class MinecraftBinding {
     public Object inner;

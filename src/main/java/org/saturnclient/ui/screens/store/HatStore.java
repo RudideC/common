@@ -2,7 +2,7 @@ package org.saturnclient.ui.screens.store;
 
 import org.saturnclient.client.ServiceClient;
 import org.saturnclient.client.player.SaturnPlayer;
-import org.saturnclient.common.minecraft.MinecraftProvider;
+import org.saturnclient.common.MinecraftProvider;
 import org.saturnclient.config.AnimationConfig;
 import org.saturnclient.config.Theme;
 import org.saturnclient.cosmetics.Hats;

@@ -1,7 +1,7 @@
 package org.saturnclient.ui.components;
 
-import org.saturnclient.common.minecraft.MinecraftProvider;
-import org.saturnclient.common.minecraft.bindings.SaturnIdentifier;
+import org.saturnclient.common.MinecraftProvider;
+import org.saturnclient.common.bindings.SaturnIdentifier;
 import org.saturnclient.config.Config;
 import org.saturnclient.config.Theme;
 import org.saturnclient.ui.Element;

@@ -1,6 +1,6 @@
-package org.saturnclient.common.minecraft.bindings;
+package org.saturnclient.common.bindings;
 
-import org.saturnclient.common.minecraft.MinecraftBinding;
+import org.saturnclient.common.MinecraftBinding;
 
 public class SaturnSprite extends MinecraftBinding {
     public SaturnSprite(Object binding) {

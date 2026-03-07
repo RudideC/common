@@ -1,4 +1,4 @@
-package org.saturnclient.common.minecraft.bindings;
+package org.saturnclient.common.bindings;
 
 import java.util.UUID;
 
