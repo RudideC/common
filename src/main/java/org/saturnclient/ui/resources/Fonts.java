@@ -4,8 +4,8 @@ import org.saturnclient.common.MinecraftProvider;
 import org.saturnclient.common.ref.asset.IdentifierRef;
 
 public class Fonts {
-    public static final IdentifierRef INTER = IdentifierRef.of("saturnclient", "inter");
-    public static final IdentifierRef INTER_BOLD = IdentifierRef.of("saturnclient", "inter_bold");
+    public static final IdentifierRef INTER = IdentifierRef.ofSaturn("inter");
+    public static final IdentifierRef INTER_BOLD = IdentifierRef.ofSaturn("inter_bold");
     public static final IdentifierRef DEFAULT = IdentifierRef.ofVanilla("default");
 
     public static IdentifierRef getFont(int font) {
