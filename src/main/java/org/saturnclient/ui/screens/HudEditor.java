@@ -4,7 +4,7 @@ import org.saturnclient.modules.HudMod;
 import org.saturnclient.modules.ModDimensions;
 import org.saturnclient.modules.ModManager;
 import org.saturnclient.modules.Module;
-import org.saturnclient.common.render.IMatrixStack;
+import org.saturnclient.common.ref.render.MatrixStackRef;
 import org.saturnclient.config.manager.ConfigManager;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.SaturnScreen;
@@ -92,7 +92,7 @@ public class HudEditor extends SaturnScreen {
     public void render(RenderScope renderScope, int mouseX, int mouseY, float delta, long elapsed) {
         for (HudMod mod : hudMods) {
             ModDimensions dim = mod.getDimensions();
-            IMatrixStack matrices = renderScope.getMatrixStack();
+            MatrixStackRef matrices = renderScope.getMatrixStack();
             matrices.push();
 
             matrices.translate(dim.x.value, dim.y.value, 0);

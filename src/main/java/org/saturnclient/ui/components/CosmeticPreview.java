@@ -1,6 +1,6 @@
 package org.saturnclient.ui.components;
 
-import org.saturnclient.common.bindings.SaturnIdentifier;
+import org.saturnclient.common.ref.asset.IdentifierRef;
 import org.saturnclient.config.Theme;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;
@@ -9,11 +9,11 @@ import org.saturnclient.ui.RenderScope;
 public class CosmeticPreview extends Element {
     static int padding = 14;
 
-    SaturnIdentifier sprite;
+    IdentifierRef sprite;
     private Runnable onClick;
     private boolean isSelected;
 
-    public CosmeticPreview(boolean isSelected, SaturnIdentifier sprite, Runnable onClick) {
+    public CosmeticPreview(boolean isSelected, IdentifierRef sprite, Runnable onClick) {
         this.sprite = sprite;
         this.onClick = onClick;
         this.isSelected = isSelected;

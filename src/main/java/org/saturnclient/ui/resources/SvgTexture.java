@@ -12,11 +12,11 @@ import com.kitfox.svg.SVGUniverse;
 
 import org.saturnclient.common.IMinecraftClient;
 import org.saturnclient.common.MinecraftProvider;
-import org.saturnclient.common.bindings.SaturnIdentifier;
+import org.saturnclient.common.ref.asset.IdentifierRef;
 
 public class SvgTexture {
 
-    private static List<SaturnIdentifier> svgCache = new ArrayList<>();
+    private static List<IdentifierRef> svgCache = new ArrayList<>();
 
     private static BufferedImage renderSvg(InputStream svgStream, int width, int height) throws Exception {
         // Load SVG
@@ -50,8 +50,8 @@ public class SvgTexture {
         return image;
     }
 
-    public static SaturnIdentifier getSvg(IMinecraftClient client, SaturnIdentifier svgImage, int width, int height) {
-        SaturnIdentifier id = SaturnIdentifier
+    public static IdentifierRef getSvg(IMinecraftClient client, IdentifierRef svgImage, int width, int height) {
+        IdentifierRef id = IdentifierRef
                 .of(svgImage.toString().replaceAll("\\.svg$", (width + "_" + height).toString() + ".png"));
 
         if (svgCache.contains(id)) {

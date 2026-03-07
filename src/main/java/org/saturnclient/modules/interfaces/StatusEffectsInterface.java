@@ -1,7 +1,8 @@
 package org.saturnclient.modules.interfaces;
 
 import java.util.List;
-import org.saturnclient.common.bindings.SaturnSprite;
+
+import org.saturnclient.common.ref.asset.SpriteRef;
 
 public interface StatusEffectsInterface {
 
@@ -13,13 +14,13 @@ public interface StatusEffectsInterface {
 
     /** Represents a single effect for rendering purposes */
     class Effect {
-        private final SaturnSprite icon;
+        private final SpriteRef icon;
         private final int durationSeconds;
         private final boolean infinite;
         private final boolean showIcon;
         private final String infiniteText;
 
-        public Effect(SaturnSprite icon, int durationSeconds, boolean infinite, boolean showIcon, String infiniteText) {
+        public Effect(SpriteRef icon, int durationSeconds, boolean infinite, boolean showIcon, String infiniteText) {
             this.icon = icon;
             this.durationSeconds = durationSeconds;
             this.infinite = infinite;
@@ -27,7 +28,7 @@ public interface StatusEffectsInterface {
             this.infiniteText = infiniteText;
         }
 
-        public SaturnSprite getIcon() {
+        public SpriteRef getIcon() {
             return icon;
         }
 

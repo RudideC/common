@@ -1,8 +1,6 @@
-package org.saturnclient.common.render;
+package org.saturnclient.common.ref.render;
 
-import org.saturnclient.common.bindings.SaturnQuaternionf;
-
-public interface IMatrixStack {
+public interface MatrixStackRef {
     public void translate(double x, double y, double z);
 
     public void translate(float x, float y, float z);

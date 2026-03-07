@@ -1,6 +1,6 @@
 package org.saturnclient.ui.elements;
 
-import org.saturnclient.common.bindings.SaturnIdentifier;
+import org.saturnclient.common.ref.asset.IdentifierRef;
 import org.saturnclient.config.Theme;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;
@@ -10,9 +10,9 @@ import org.saturnclient.ui.Utils;
 public class TabMenu extends Element {
     public static class TabMenuComponent {
         Runnable onClick;
-        SaturnIdentifier sprite;
+        IdentifierRef sprite;
 
-        public TabMenuComponent(SaturnIdentifier sprite, Runnable onClick) {
+        public TabMenuComponent(IdentifierRef sprite, Runnable onClick) {
             this.onClick = onClick;
             this.sprite = sprite;
         }

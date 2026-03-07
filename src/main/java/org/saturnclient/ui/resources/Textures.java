@@ -1,84 +1,84 @@
 package org.saturnclient.ui.resources;
 
-import org.saturnclient.common.bindings.SaturnIdentifier;
+import org.saturnclient.common.ref.asset.IdentifierRef;
 
 public class Textures {
-        public static final SaturnIdentifier CROSSHAIR_RANGE = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef CROSSHAIR_RANGE = new IdentifierRef("saturnclient",
                         "textures/gui/hud/crosshair_range.png");
-        public static final SaturnIdentifier COSMETICS = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef COSMETICS = new IdentifierRef("saturnclient",
                         "textures/gui/components/cosmetics.png");
-        public static final SaturnIdentifier HUD_ICON = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef HUD_ICON = new IdentifierRef("saturnclient",
                         "textures/gui/components/hud.png");
-        public static final SaturnIdentifier SEARCH = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef SEARCH = new IdentifierRef("saturnclient",
                         "textures/gui/components/search.png");
-        public static final SaturnIdentifier CLOSE = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef CLOSE = new IdentifierRef("saturnclient",
                         "textures/gui/components/close.png");
-        public static final SaturnIdentifier MODS_TAB = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef MODS_TAB = new IdentifierRef("saturnclient",
                         "textures/gui/components/mods_tab.png");
-        public static final SaturnIdentifier SETTINGS = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef SETTINGS = new IdentifierRef("saturnclient",
                         "textures/gui/components/settings.png");
-        public static final SaturnIdentifier CLOAK = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef CLOAK = new IdentifierRef("saturnclient",
                         "textures/gui/components/cloak.png");
-        public static final SaturnIdentifier HAT = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef HAT = new IdentifierRef("saturnclient",
                         "textures/gui/components/hat.png");
-        public static final SaturnIdentifier RESET = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef RESET = new IdentifierRef("saturnclient",
                         "textures/gui/components/reset.png");
-        public static final SaturnIdentifier TOGGLE_INDICATOR = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef TOGGLE_INDICATOR = new IdentifierRef("saturnclient",
                         "textures/gui/components/toggle_indicator.png");
-        public static final SaturnIdentifier LEFT = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef LEFT = new IdentifierRef("saturnclient",
                         "textures/gui/components/left.png");
-        public static final SaturnIdentifier RIGHT = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef RIGHT = new IdentifierRef("saturnclient",
                         "textures/gui/components/right.png");
-        public static final SaturnIdentifier STORE = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef STORE = new IdentifierRef("saturnclient",
                         "textures/gui/components/store.png");
-        public static final SaturnIdentifier COINS = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef COINS = new IdentifierRef("saturnclient",
                         "textures/gui/components/coins.png");
-        public static final SaturnIdentifier SHIRT = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef SHIRT = new IdentifierRef("saturnclient",
                         "textures/gui/components/shirt.png");
-        public static final SaturnIdentifier CIRCLE_X = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef CIRCLE_X = new IdentifierRef("saturnclient",
                         "textures/gui/components/circle_x.png");
-        public static final SaturnIdentifier INFO = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef INFO = new IdentifierRef("saturnclient",
                         "textures/gui/components/info.png");
-        public static final SaturnIdentifier CHECK = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef CHECK = new IdentifierRef("saturnclient",
                         "textures/gui/components/check.png");
 
-        public static final SaturnIdentifier LOGO = new SaturnIdentifier("saturnclient", "textures/logo/logo.png");
-        public static final SaturnIdentifier REALISTIC_LOGO = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef LOGO = new IdentifierRef("saturnclient", "textures/logo/logo.png");
+        public static final IdentifierRef REALISTIC_LOGO = new IdentifierRef("saturnclient",
                         "textures/logo/realistic.png");
-        public static final SaturnIdentifier LOGO_TEXT = new SaturnIdentifier("saturnclient", "textures/logo/text.png");
-        public static final SaturnIdentifier LOGO_TEXT_BIG = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef LOGO_TEXT = new IdentifierRef("saturnclient", "textures/logo/text.png");
+        public static final IdentifierRef LOGO_TEXT_BIG = new IdentifierRef("saturnclient",
                         "textures/logo/text_big.png");
-        public static final SaturnIdentifier SPLASH = new SaturnIdentifier("saturnclient", "textures/gui/splash.png");
+        public static final IdentifierRef SPLASH = new IdentifierRef("saturnclient", "textures/gui/splash.png");
 
         // Widgets
-        public static final SaturnIdentifier BUTTON_BORDER = new SaturnIdentifier("saturnclient", "button_border");
-        public static final SaturnIdentifier BUTTON = new SaturnIdentifier("saturnclient", "button");
-        public static final SaturnIdentifier BUTTON_OP = new SaturnIdentifier("saturnclient", "button_op");
-        public static final SaturnIdentifier SETTINGS_BG = new SaturnIdentifier("saturnclient", "settings_bg");
-        public static final SaturnIdentifier RECT = new SaturnIdentifier("saturnclient", "rect");
-        public static final SaturnIdentifier RECT_BORDER = new SaturnIdentifier("saturnclient", "rect_border");
-        public static final SaturnIdentifier MOD = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef BUTTON_BORDER = new IdentifierRef("saturnclient", "button_border");
+        public static final IdentifierRef BUTTON = new IdentifierRef("saturnclient", "button");
+        public static final IdentifierRef BUTTON_OP = new IdentifierRef("saturnclient", "button_op");
+        public static final IdentifierRef SETTINGS_BG = new IdentifierRef("saturnclient", "settings_bg");
+        public static final IdentifierRef RECT = new IdentifierRef("saturnclient", "rect");
+        public static final IdentifierRef RECT_BORDER = new IdentifierRef("saturnclient", "rect_border");
+        public static final IdentifierRef MOD = new IdentifierRef("saturnclient",
                         "textures/gui/components/mod.png");
-        public static final SaturnIdentifier MOD_BG = new SaturnIdentifier("saturnclient",
+        public static final IdentifierRef MOD_BG = new IdentifierRef("saturnclient",
                         "textures/gui/components/mod_bg.png");
 
-        public static SaturnIdentifier getCloakPreview(String cloak) {
-                return new SaturnIdentifier("saturnclient",
+        public static IdentifierRef getCloakPreview(String cloak) {
+                return new IdentifierRef("saturnclient",
                                 "textures/gui/cloak/" + (cloak.isEmpty() ? "none" : cloak) + ".png");
         }
 
-        public static SaturnIdentifier getHatPreview(String hat) {
-                return new SaturnIdentifier("saturnclient",
+        public static IdentifierRef getHatPreview(String hat) {
+                return new IdentifierRef("saturnclient",
                                 "textures/gui/hat/" + (hat.isEmpty() ? "none" : hat) + ".png");
         }
 
-        public static SaturnIdentifier getEmotePreview(String emote) {
-                return new SaturnIdentifier("saturnclient",
+        public static IdentifierRef getEmotePreview(String emote) {
+                return new IdentifierRef("saturnclient",
                                 "textures/gui/emote/" + (emote == null ? "none" : emote) + ".png");
         }
 
-        public static SaturnIdentifier getModIcon(String modId) {
-                return new SaturnIdentifier("saturnclient", "textures/gui/mod/" + modId + ".svg");
+        public static IdentifierRef getModIcon(String modId) {
+                return new IdentifierRef("saturnclient", "textures/gui/mod/" + modId + ".svg");
         }
 
 }

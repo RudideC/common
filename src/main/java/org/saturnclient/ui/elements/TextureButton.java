@@ -1,17 +1,17 @@
 package org.saturnclient.ui.elements;
 
-import org.saturnclient.common.bindings.SaturnIdentifier;
+import org.saturnclient.common.ref.asset.IdentifierRef;
 import org.saturnclient.config.Theme;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;
 import org.saturnclient.ui.RenderScope;
 
 public class TextureButton extends Element {
-    SaturnIdentifier sprite;
+    IdentifierRef sprite;
     private Runnable onClick;
     static int padding = 14;
 
-    public TextureButton(SaturnIdentifier sprite, Runnable onClick) {
+    public TextureButton(IdentifierRef sprite, Runnable onClick) {
         this.sprite = sprite;
         this.onClick = onClick;
     }

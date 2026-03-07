@@ -2,16 +2,16 @@ package org.saturnclient.ui.elements;
 
 import org.saturnclient.common.IMinecraftClient;
 import org.saturnclient.common.MinecraftProvider;
-import org.saturnclient.common.bindings.SaturnIdentifier;
+import org.saturnclient.common.ref.asset.IdentifierRef;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.SvgTexture;
 
 public class ImageTexture extends Element {
-    SaturnIdentifier sprite;
+    IdentifierRef sprite;
 
-    public ImageTexture(SaturnIdentifier sprite) {
+    public ImageTexture(IdentifierRef sprite) {
         this.sprite = sprite;
     }
 
@@ -24,7 +24,7 @@ public class ImageTexture extends Element {
             int renderHeight = (int) (height * client.getWindow().getFramebufferHeight()
                     / client.getWindow().getHeight());
 
-            SaturnIdentifier pngId = SvgTexture.getSvg(client, sprite, renderWidth * 2, renderHeight * 2);
+            IdentifierRef pngId = SvgTexture.getSvg(client, sprite, renderWidth * 2, renderHeight * 2);
 
             this.sprite = pngId;
             if (pngId == null) {

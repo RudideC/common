@@ -1,6 +1,6 @@
 package org.saturnclient.common;
 
-import org.saturnclient.common.bindings.SaturnIdentifier;
+import org.saturnclient.common.ref.asset.IdentifierRef;
 import org.saturnclient.ui.SaturnScreen;
 
 import java.awt.image.BufferedImage;
@@ -26,7 +26,7 @@ public abstract class MinecraftProvider {
 
     public abstract int getWidth(String text, int font);
 
-    public abstract void registerBufferedImageTexture(SaturnIdentifier i, BufferedImage bi);
+    public abstract void registerBufferedImageTexture(IdentifierRef i, BufferedImage bi);
 
     public abstract String getKeyName(int key);
 

@@ -1,32 +1,32 @@
 package org.saturnclient.modules.interfaces;
 
-import org.saturnclient.common.bindings.SaturnItemStack;
+import org.saturnclient.common.ref.game.ItemStackRef;
 
 public interface ArmorDisplayInterface {
 
-    SaturnItemStack getMainHand();
+    ItemStackRef getMainHand();
 
-    SaturnItemStack getHelmet();
+    ItemStackRef getHelmet();
 
-    SaturnItemStack getChestplate();
+    ItemStackRef getChestplate();
 
-    SaturnItemStack getLeggings();
+    ItemStackRef getLeggings();
 
-    SaturnItemStack getBoots();
+    ItemStackRef getBoots();
 
-    SaturnItemStack getDummyMainHand();
+    ItemStackRef getDummyMainHand();
 
-    SaturnItemStack getDummyHelmet();
+    ItemStackRef getDummyHelmet();
 
-    SaturnItemStack getDummyChestplate();
+    ItemStackRef getDummyChestplate();
 
-    SaturnItemStack getDummyLeggings();
+    ItemStackRef getDummyLeggings();
 
-    SaturnItemStack getDummyBoots();
+    ItemStackRef getDummyBoots();
 
-    boolean isEmpty(SaturnItemStack stack);
+    boolean isEmpty(ItemStackRef stack);
 
-    int getMaxDamage(SaturnItemStack stack);
+    int getMaxDamage(ItemStackRef stack);
 
-    int getDamage(SaturnItemStack stack);
+    int getDamage(ItemStackRef stack);
 }

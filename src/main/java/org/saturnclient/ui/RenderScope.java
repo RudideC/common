@@ -1,12 +1,12 @@
 package org.saturnclient.ui;
 
-import org.saturnclient.common.bindings.SaturnIdentifier;
-import org.saturnclient.common.bindings.SaturnItemStack;
-import org.saturnclient.common.bindings.SaturnSprite;
-import org.saturnclient.common.render.IMatrixStack;
+import org.saturnclient.common.ref.asset.IdentifierRef;
+import org.saturnclient.common.ref.asset.SpriteRef;
+import org.saturnclient.common.ref.game.ItemStackRef;
+import org.saturnclient.common.ref.render.MatrixStackRef;
 
 public interface RenderScope {
-        public IMatrixStack getMatrixStack();
+        public MatrixStackRef getMatrixStack();
 
         public void setOpacity(float alpha);
 
@@ -25,16 +25,16 @@ public interface RenderScope {
         public int getScaledWindowHeight();
 
         /* Saturn common sprites */
-        public void drawTexture(SaturnIdentifier sprite, int x, int y, float u, float v, int width, int height,
+        public void drawTexture(IdentifierRef sprite, int x, int y, float u, float v, int width, int height,
                         int color);
 
-        public void drawTexture(SaturnIdentifier sprite, int x, int y, float u, float v, int width, int height);
+        public void drawTexture(IdentifierRef sprite, int x, int y, float u, float v, int width, int height);
 
-        public void drawTexture(SaturnIdentifier sprite, int x, int y, float u, float v, int width, int height,
+        public void drawTexture(IdentifierRef sprite, int x, int y, float u, float v, int width, int height,
                         int regionWith,
                         int regionHeight, int textureWidth, int textureHeight);
 
-        public void drawTexture(SaturnIdentifier sprite, int x, int y, float u, float v, int width, int height,
+        public void drawTexture(IdentifierRef sprite, int x, int y, float u, float v, int width, int height,
                         int regionWidth,
                         int regionHeight, int textureWidth, int textureHeight, int color);
 
@@ -46,19 +46,19 @@ public interface RenderScope {
 
         public void draw();
 
-        public void drawItem(SaturnItemStack item, int x, int y);
+        public void drawItem(ItemStackRef item, int x, int y);
 
-        public void drawItem(SaturnItemStack stack, int x, int y, int seed);
+        public void drawItem(ItemStackRef stack, int x, int y, int seed);
 
-        public void drawItem(SaturnItemStack stack, int x, int y, int seed, int z);
+        public void drawItem(ItemStackRef stack, int x, int y, int seed, int z);
 
-        public void drawItemWithoutEntity(SaturnItemStack stack, int x, int y);
+        public void drawItemWithoutEntity(ItemStackRef stack, int x, int y);
 
-        public void drawItemWithoutEntity(SaturnItemStack stack, int x, int y, int seed);
+        public void drawItemWithoutEntity(ItemStackRef stack, int x, int y, int seed);
 
-        public void drawSpriteStretched(SaturnSprite sprite, int x, int y, int width, int height);
+        public void drawSpriteStretched(SpriteRef sprite, int x, int y, int width, int height);
 
-        public void drawSpriteStretched(SaturnSprite sprite, int x, int y, int width, int height, int color);
+        public void drawSpriteStretched(SpriteRef sprite, int x, int y, int width, int height, int color);
 
         public void fill(int x1, int y1, int x2, int y2, int color);
 

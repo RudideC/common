@@ -3,14 +3,14 @@ package org.saturnclient.common;
 import java.io.File;
 import java.io.InputStream;
 
-import org.saturnclient.common.bindings.SaturnIdentifier;
-import org.saturnclient.common.render.IWindow;
+import org.saturnclient.common.ref.asset.IdentifierRef;
+import org.saturnclient.common.ref.render.WindowRef;
 
 public interface IMinecraftClient {
 
     public File getRunDirectory();
 
-    public InputStream getResource(SaturnIdentifier identifier);
+    public InputStream getResource(IdentifierRef identifier);
 
-    public IWindow getWindow();
+    public WindowRef getWindow();
 }

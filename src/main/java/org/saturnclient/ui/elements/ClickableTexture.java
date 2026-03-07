@@ -1,16 +1,16 @@
 package org.saturnclient.ui.elements;
 
-import org.saturnclient.common.bindings.SaturnIdentifier;
+import org.saturnclient.common.ref.asset.IdentifierRef;
 import org.saturnclient.config.Theme;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;
 import org.saturnclient.ui.RenderScope;
 
 public class ClickableTexture extends Element {
-    SaturnIdentifier sprite;
+    IdentifierRef sprite;
     private Runnable onClick;
 
-    public ClickableTexture(SaturnIdentifier sprite, Runnable onClick) {
+    public ClickableTexture(IdentifierRef sprite, Runnable onClick) {
         this.sprite = sprite;
         this.onClick = onClick;
     }

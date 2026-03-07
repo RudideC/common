@@ -5,7 +5,7 @@ import org.saturnclient.modules.ModDimensions;
 import org.saturnclient.modules.Module;
 import org.saturnclient.modules.ModuleDetails;
 import org.saturnclient.modules.interfaces.ArmorDisplayInterface;
-import org.saturnclient.common.bindings.SaturnItemStack;
+import org.saturnclient.common.ref.game.ItemStackRef;
 import org.saturnclient.config.manager.Property;
 import org.saturnclient.ui.RenderScope;
 
@@ -30,11 +30,11 @@ public class ArmorDisplay extends Module implements HudMod {
     }
 
     public void renderArmor(RenderScope scope,
-            SaturnItemStack mainHand,
-            SaturnItemStack helmet,
-            SaturnItemStack chestplate,
-            SaturnItemStack leggings,
-            SaturnItemStack boots) {
+            ItemStackRef mainHand,
+            ItemStackRef helmet,
+            ItemStackRef chestplate,
+            ItemStackRef leggings,
+            ItemStackRef boots) {
 
         int row = 0;
 

@@ -3,7 +3,7 @@ package org.saturnclient.config;
 import java.io.File;
 
 import org.saturnclient.common.MinecraftProvider;
-import org.saturnclient.common.bindings.SaturnIdentifier;
+import org.saturnclient.common.ref.asset.IdentifierRef;
 import org.saturnclient.config.manager.ConfigManager;
 import org.saturnclient.config.manager.Key;
 import org.saturnclient.config.manager.Property;
@@ -18,7 +18,7 @@ public class Config {
     public static Property<Integer> openEmoteWheel = Property.keybinding(Key.GLFW_KEY_B);
     public static Property<Boolean> stagger = Property.bool(true);
 
-    public static SaturnIdentifier getLogo() {
+    public static IdentifierRef getLogo() {
         return realisticLogo.value ? Textures.REALISTIC_LOGO : Textures.LOGO;
     }
 

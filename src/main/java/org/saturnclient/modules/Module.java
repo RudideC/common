@@ -1,6 +1,6 @@
 package org.saturnclient.modules;
 
-import org.saturnclient.common.bindings.SaturnIdentifier;
+import org.saturnclient.common.ref.asset.IdentifierRef;
 import org.saturnclient.config.manager.ConfigManager;
 import org.saturnclient.config.manager.Property.NamedProperty;
 import org.saturnclient.ui.RenderScope;
@@ -37,7 +37,7 @@ public abstract class Module {
         return details.name;
     }
 
-    public SaturnIdentifier getIconTexture() {
+    public IdentifierRef getIconTexture() {
         return Textures.getModIcon(details.namespace);
     }
 

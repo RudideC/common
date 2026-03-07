@@ -1,4 +1,4 @@
-package org.saturnclient.common.bindings;
+package org.saturnclient.common.ref.render;
 
 import org.saturnclient.common.MinecraftBinding;
 

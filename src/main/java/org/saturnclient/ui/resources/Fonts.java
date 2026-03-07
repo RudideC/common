@@ -1,14 +1,14 @@
 package org.saturnclient.ui.resources;
 
 import org.saturnclient.common.MinecraftProvider;
-import org.saturnclient.common.bindings.SaturnIdentifier;
+import org.saturnclient.common.ref.asset.IdentifierRef;
 
 public class Fonts {
-    public static final SaturnIdentifier INTER = SaturnIdentifier.of("saturnclient", "inter");
-    public static final SaturnIdentifier INTER_BOLD = SaturnIdentifier.of("saturnclient", "inter_bold");
-    public static final SaturnIdentifier DEFAULT = SaturnIdentifier.ofVanilla("default");
+    public static final IdentifierRef INTER = IdentifierRef.of("saturnclient", "inter");
+    public static final IdentifierRef INTER_BOLD = IdentifierRef.of("saturnclient", "inter_bold");
+    public static final IdentifierRef DEFAULT = IdentifierRef.ofVanilla("default");
 
-    public static SaturnIdentifier getFont(int font) {
+    public static IdentifierRef getFont(int font) {
         switch (font) {
             case 0:
                 return DEFAULT;

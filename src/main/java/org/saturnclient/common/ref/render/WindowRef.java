@@ -1,6 +1,6 @@
-package org.saturnclient.common.render;
+package org.saturnclient.common.ref.render;
 
-public interface IWindow {
+public interface WindowRef {
     public int getWidth();
 
     public int getHeight();
