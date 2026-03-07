@@ -7,9 +7,9 @@ public interface MatrixStackRef {
 
     public void scale(float x, float y, float z);
 
-    public void multiply(SaturnQuaternionf quaternion);
+    public void multiply(QuaternionfRef quaternion);
 
-    public void multiply(SaturnQuaternionf quaternion, float originX, float originY, float originZ);
+    public void multiply(QuaternionfRef quaternion, float originX, float originY, float originZ);
 
     public void push();
 
