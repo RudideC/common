@@ -2,7 +2,7 @@ package org.saturnclient.ui.screens.store;
 
 import org.saturnclient.client.ServiceClient;
 import org.saturnclient.client.player.SaturnPlayer;
-import org.saturnclient.common.MinecraftProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.AnimationConfig;
 import org.saturnclient.config.Theme;
 import org.saturnclient.cosmetics.Hats;
@@ -103,7 +103,7 @@ public class HatStore extends SaturnScreen {
 
         draw(new TabMenu(1,
                 new TabMenuComponent(Textures.CLOAK, () -> {
-                    MinecraftProvider.PROVIDER.setScreen(new CloakStore());
+                    Providers.saturn.setScreen(new CloakStore());
                 }),
                 new TabMenuComponent(Textures.HAT, () -> {
                 }))
@@ -126,10 +126,10 @@ public class HatStore extends SaturnScreen {
                 }
 
                 // RenderSystem.recordRenderCall(() -> {
-                //     MinecraftProvider.PROVIDER.setScreen(new HatStore(now));
-                //     // Utils.notify(NotificationKind.Success,
-                //     // "Purchase complete",
-                //     // "Congrats, enjoy your new hat!");
+                // MinecraftProvider.PROVIDER.setScreen(new HatStore(now));
+                // // Utils.notify(NotificationKind.Success,
+                // // "Purchase complete",
+                // // "Congrats, enjoy your new hat!");
                 // });
             }).start();
 

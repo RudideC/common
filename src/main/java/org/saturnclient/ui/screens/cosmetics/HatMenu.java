@@ -1,7 +1,7 @@
 package org.saturnclient.ui.screens.cosmetics;
 
 import org.saturnclient.client.player.SaturnPlayer;
-import org.saturnclient.common.MinecraftProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.AnimationConfig;
 import org.saturnclient.cosmetics.Hats;
 import org.saturnclient.ui.SaturnScreen;
@@ -73,7 +73,7 @@ public class HatMenu extends SaturnScreen {
 
         draw(new TabMenu(1,
                 new TabMenuComponent(Textures.CLOAK, () -> {
-                    MinecraftProvider.PROVIDER.setScreen(new CloakMenu());
+                    Providers.saturn.getClient().setScreen(new CloakMenu());
                 }),
                 new TabMenuComponent(Textures.HAT, () -> {
                 }))

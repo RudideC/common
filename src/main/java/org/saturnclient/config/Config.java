@@ -2,7 +2,7 @@ package org.saturnclient.config;
 
 import java.io.File;
 
-import org.saturnclient.common.MinecraftProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.ref.asset.IdentifierRef;
 import org.saturnclient.config.manager.ConfigManager;
 import org.saturnclient.config.manager.Key;
@@ -23,7 +23,7 @@ public class Config {
     }
 
     public static void init() {
-        File configFile = new File(MinecraftProvider.PROVIDER.getClient().getRunDirectory(), "saturn.json");
+        File configFile = new File(Providers.saturn.getClient().getRunDirectory(), "saturn.json");
         config = new ConfigManager(configFile, "Saturn Client");
 
         config.property("Realistic logo", realisticLogo);

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.util.Map;
 
-import org.saturnclient.common.MinecraftProvider;
+import org.saturnclient.common.provider.Providers;
 
 public class Property<T> {
 
@@ -275,7 +275,7 @@ public class Property<T> {
     public boolean isKeyPressed() {
 
         return (Integer) value != -1 &&
-                MinecraftProvider.PROVIDER.isKeyPressed((Integer) value);
+                Providers.saturn.isKeyPressed((Integer) value);
     }
 
     public boolean wasKeyPressed() {

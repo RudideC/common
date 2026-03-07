@@ -1,6 +1,6 @@
 package org.saturnclient.ui.resources;
 
-import org.saturnclient.common.MinecraftProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.ref.asset.IdentifierRef;
 
 public class Fonts {
@@ -22,7 +22,7 @@ public class Fonts {
     public static int getWidth(String text, int font) {
         int w = 0;
         for (String line : text.split("\n")) {
-            w = Math.max(w, MinecraftProvider.PROVIDER.getWidth(line, font));
+            w = Math.max(w, Providers.saturn.getWidth(line, font));
         }
         if (font == 0) {
             return w * 2;

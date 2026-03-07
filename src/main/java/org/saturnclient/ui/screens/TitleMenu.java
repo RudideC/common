@@ -1,7 +1,7 @@
 package org.saturnclient.ui.screens;
 
-import org.saturnclient.common.MinecraftProvider;
-import org.saturnclient.common.MinecraftProvider.MinecraftScreen;
+import org.saturnclient.common.provider.Providers;
+import org.saturnclient.common.provider.SaturnProvider.MinecraftScreen;
 import org.saturnclient.config.AnimationConfig;
 import org.saturnclient.config.Config;
 import org.saturnclient.ui.SaturnScreen;
@@ -33,22 +33,22 @@ public class TitleMenu extends SaturnScreen {
         AnimationStagger mainButtonStagger = new AnimationStagger(AnimationConfig.mainMenu);
 
         mainButtonStagger.draw(new Button("SINGLEPLAYER", () -> {
-            MinecraftProvider.PROVIDER.setScreen(MinecraftScreen.SelectWorld);
+            Providers.saturn.setScreen(MinecraftScreen.SelectWorld);
         }).scale(0.69f).dimensions(420, 52).position(0, 0)
                 .animation(new SlideFade(AnimationConfig.mainMenu, -10)));
 
         mainButtonStagger.draw(new Button("MULTIPLAYER", () -> {
-            MinecraftProvider.PROVIDER.setScreen(MinecraftScreen.Multiplayer);
+            Providers.saturn.setScreen(MinecraftScreen.Multiplayer);
         }).scale(0.69f).dimensions(420, 52).position(0, 40)
                 .animation(new SlideFade(AnimationConfig.mainMenu, -10)));
 
         mainButtonStagger.draw(new Button("OPTIONS", () -> {
-            MinecraftProvider.PROVIDER.setScreen(MinecraftScreen.Options);
+            Providers.saturn.setScreen(MinecraftScreen.Options);
         }).scale(0.69f).dimensions(206, 52).position(0, 80)
                 .animation(new SlideFade(AnimationConfig.mainMenu, -10)));
 
         mainButtonStagger.draw(new Button("QUIT", () -> {
-            MinecraftProvider.PROVIDER.stop();
+            Providers.saturn.stop();
         }).scale(0.69f).dimensions(206, 52).position(146, 80)
                 .animation(new SlideFade(AnimationConfig.mainMenu, -10)));
 
@@ -59,16 +59,16 @@ public class TitleMenu extends SaturnScreen {
         AnimationStagger saturnStagger = new AnimationStagger(AnimationConfig.mainMenu.stagger.value);
 
         saturnStagger.draw(new TextureButton(Textures.HUD_ICON, () -> {
-            MinecraftProvider.PROVIDER.setScreen(new HudEditor());
+            Providers.saturn.setScreen(new HudEditor());
         }).dimensions(s, s).position(0, 0).animation(new SlideFade(AnimationConfig.mainMenu, s + 8)));
 
         saturnStagger.draw(new TextureButton(Textures.SETTINGS, () -> {
-            MinecraftProvider.PROVIDER.setScreen(new ModMenu());
+            Providers.saturn.setScreen(new ModMenu());
         }).dimensions(s, s).position(s + 2, 0)
                 .animation(new SlideFade(AnimationConfig.mainMenu, s + 8)));
 
         saturnStagger.draw(new TextureButton(Textures.CLOAK, () -> {
-            MinecraftProvider.PROVIDER.setScreen(new CloakMenu());
+            Providers.saturn.setScreen(new CloakMenu());
         }).dimensions(s, s).position((s + 2) * 2, 0)
                 .animation(new SlideFade(AnimationConfig.mainMenu, s + 8)));
 

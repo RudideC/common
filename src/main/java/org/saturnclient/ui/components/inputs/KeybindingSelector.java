@@ -1,6 +1,6 @@
 package org.saturnclient.ui.components.inputs;
 
-import org.saturnclient.common.MinecraftProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.Theme;
 import org.saturnclient.config.manager.Key;
 import org.saturnclient.config.manager.Property;
@@ -22,7 +22,7 @@ public class KeybindingSelector extends Element {
     public void render(RenderScope renderScope, ElementContext ctx) {
         int textColor = focused ? 0xFFFFFF : 0xAAAAAA;
         renderScope.drawRoundedRectangle(0, 0, width, height, 10, 0xFF000000);
-        String name = MinecraftProvider.PROVIDER.getKeyName(prop.value);
+        String name = Providers.saturn.getKeyName(prop.value);
 
         renderScope.drawText(0.6f,
                 prop.value == -1 ? "<NONE>"

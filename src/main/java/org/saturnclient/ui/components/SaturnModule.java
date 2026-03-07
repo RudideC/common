@@ -1,7 +1,7 @@
 package org.saturnclient.ui.components;
 
 import org.saturnclient.modules.Module;
-import org.saturnclient.common.MinecraftProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.Theme;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;
@@ -141,7 +141,7 @@ public class SaturnModule extends Element {
                 1.0f);
 
         if (settingsHover) {
-            MinecraftProvider.PROVIDER.setScreen(new ConfigEditor(mod.getConfig()));
+            Providers.saturn.getClient().setScreen(new ConfigEditor(mod.getConfig()));
         } else {
             mod.setEnabled(!mod.isEnabled());
         }
