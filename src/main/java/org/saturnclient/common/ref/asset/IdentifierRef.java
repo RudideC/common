@@ -9,6 +9,10 @@ public interface IdentifierRef {
         return null;
     }
 
+    public static IdentifierRef ofSaturn(String path) {
+        return null;
+    }
+
     public static IdentifierRef ofVanilla(String path) {
         return null;
     }
