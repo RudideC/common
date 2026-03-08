@@ -1,8 +1,8 @@
 package org.saturnclient.ui.screens;
 
-import org.saturnclient.modules.ModManager;
-import org.saturnclient.modules.Module;
 import org.saturnclient.config.AnimationConfig;
+import org.saturnclient.feature.FeatureManager;
+import org.saturnclient.feature.Feature;
 import org.saturnclient.ui.SaturnScreen;
 import org.saturnclient.ui.anim.SlideFade;
 import org.saturnclient.ui.components.SaturnModule;
@@ -29,7 +29,7 @@ public class ModMenu extends SaturnScreen {
 
         AnimationStagger moduleStagger = new AnimationStagger(AnimationConfig.modMenu);
 
-        for (Module mod : ModManager.MODS) {
+        for (Feature mod : FeatureManager.MODS) {
             moduleStagger.draw(
                     new SaturnModule(mod)
                             .position((160 + g) * col, (50 + g) * row)

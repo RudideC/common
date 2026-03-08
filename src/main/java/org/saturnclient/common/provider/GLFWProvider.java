@@ -1,9 +1,9 @@
 package org.saturnclient.common.provider;
 
 public interface GLFWProvider {
-    public abstract boolean isKeyPressed(int key);
+    public boolean isKeyPressed(int key);
 
-    public abstract String getKeyName(int key);
+    public String getKeyName(int key);
 
     /** Printable keys. */
     public static final int GLFW_KEY_SPACE = 32,
