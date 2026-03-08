@@ -34,7 +34,7 @@ public interface EntityModule {
         EntityType getEntityType();
     }
 
-    enum EntityType {
+    public static enum EntityType {
         PLAYER,
         HOSTILE,
         PASSIVE,
