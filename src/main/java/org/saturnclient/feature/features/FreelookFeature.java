@@ -1,6 +1,6 @@
 package org.saturnclient.feature.features;
 
-import org.saturnclient.common.provider.ModuleProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.module.RenderModule;
 import org.saturnclient.common.provider.GLFWProvider;
 import org.saturnclient.config.manager.Property;
@@ -24,9 +24,7 @@ public class FreelookFeature extends Feature {
     public static boolean isFreeLooking = false;
     private static boolean wasFirstPerson = false;
 
-    private final ModuleProvider modules;
-
-    public FreelookFeature(ModuleProvider modules) {
+    public FreelookFeature() {
         super(
                 new FeatureDetails("Freelook", "freelook")
                         .description("Look around freely without moving your character")
@@ -35,8 +33,6 @@ public class FreelookFeature extends Feature {
                 enabled.named("Enabled"),
                 toggle.named("Toggle freelook"),
                 freelookKey.named("Freelook Keybinding"));
-
-        this.modules = modules;
     }
 
     // ---------------------------------------------------------------
@@ -77,7 +73,7 @@ public class FreelookFeature extends Feature {
     // ---------------------------------------------------------------
 
     private void startFreelook() {
-        RenderModule render = modules.render();
+        RenderModule render = Providers.module.render();
         wasFirstPerson = render.isFirstPerson();
         render.setThirdPersonBack();
         isFreeLooking = true;
@@ -85,7 +81,7 @@ public class FreelookFeature extends Feature {
 
     private void stopFreelook() {
         if (wasFirstPerson) {
-            modules.render().setFirstPerson();
+            Providers.module.render().setFirstPerson();
         }
         isFreeLooking = false;
     }

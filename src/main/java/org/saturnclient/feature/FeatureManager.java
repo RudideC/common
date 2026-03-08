@@ -7,7 +7,9 @@ import org.saturnclient.feature.features.*;
 
 public class FeatureManager {
     public static List<Feature> ENABLED_MODS = new ArrayList<>();
-    public static Feature[] MODS = {};
+    public static Feature[] MODS = {
+            new ArmorDisplayFeature()
+    };
 
     public static void init() {
         updateEnabledModules();

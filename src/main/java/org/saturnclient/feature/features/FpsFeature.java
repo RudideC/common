@@ -1,6 +1,6 @@
 package org.saturnclient.feature.features;
 
-import org.saturnclient.common.provider.ModuleProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.manager.Property;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
@@ -18,9 +18,7 @@ public class FpsFeature extends Feature implements HudFeature {
     private static final Property<Boolean> enabled = Property.bool(false);
     private static final FeatureLayout layout = new FeatureLayout(60, Fonts.getHeight());
 
-    private final ModuleProvider modules;
-
-    public FpsFeature(ModuleProvider modules) {
+    public FpsFeature() {
         super(
                 new FeatureDetails("FPS Display", "fps")
                         .description("Displays current FPS")
@@ -28,8 +26,6 @@ public class FpsFeature extends Feature implements HudFeature {
                         .tags("Utility"),
                 enabled.named("Enabled"),
                 layout.prop());
-
-        this.modules = modules;
     }
 
     // ---------------------------------------------------------------
@@ -38,7 +34,7 @@ public class FpsFeature extends Feature implements HudFeature {
 
     @Override
     public void renderHud(RenderScope scope) {
-        renderFps(modules.render().getFps(), scope);
+        renderFps(Providers.module.render().getFps(), scope);
     }
 
     @Override

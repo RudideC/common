@@ -1,6 +1,6 @@
 package org.saturnclient.feature.features;
 
-import org.saturnclient.common.provider.ModuleProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.module.NetworkModule;
 import org.saturnclient.common.module.PlayerModule;
 import org.saturnclient.config.manager.Property;
@@ -15,17 +15,13 @@ public class AutoSprintFeature extends Feature {
 
     private static final Property<Boolean> enabled = Property.bool(false);
 
-    private final ModuleProvider modules;
-
-    public AutoSprintFeature(ModuleProvider modules) {
+    public AutoSprintFeature() {
         super(
                 new FeatureDetails("Auto Sprint", "sprint")
                         .description("Makes the player always sprint")
                         .tags("Movement")
                         .version("v0.2.0"),
                 enabled.named("Enabled"));
-
-        this.modules = modules;
     }
 
     // ---------------------------------------------------------------
@@ -34,8 +30,8 @@ public class AutoSprintFeature extends Feature {
 
     @Override
     public void tick() {
-        PlayerModule player = modules.player();
-        NetworkModule network = modules.network();
+        PlayerModule player = Providers.module.player();
+        NetworkModule network = Providers.module.network();
 
         if (!player.hasPlayer() || !network.hasNetwork()) {
             return;

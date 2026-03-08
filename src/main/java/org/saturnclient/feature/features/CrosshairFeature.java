@@ -1,6 +1,6 @@
 package org.saturnclient.feature.features;
 
-import org.saturnclient.common.provider.ModuleProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.module.RenderModule;
 import org.saturnclient.config.manager.Property;
 import org.saturnclient.ui.RenderScope;
@@ -18,17 +18,13 @@ public class CrosshairFeature extends Feature {
 
     private static final int CROSSHAIR_SIZE = 15;
 
-    private final ModuleProvider modules;
-
-    public CrosshairFeature(ModuleProvider modules) {
+    public CrosshairFeature() {
         super(
                 new FeatureDetails("Crosshair", "crosshair")
                         .description("Changes the crosshair when aiming at an entity")
                         .tags("Visuals", "Utility")
                         .version("v0.2.0"),
                 enabled.named("Enabled"));
-
-        this.modules = modules;
     }
 
     // ---------------------------------------------------------------
@@ -37,11 +33,11 @@ public class CrosshairFeature extends Feature {
 
     @Override
     public void render(RenderScope scope) {
-        if (!enabled.value || !modules.entity().isTargetingLivingEntity()) {
+        if (!enabled.value || !Providers.module.entity().isTargetingLivingEntity()) {
             return;
         }
 
-        RenderModule render = modules.render();
+        RenderModule render = Providers.module.render();
         int x = (render.getScaledWindowWidth() - CROSSHAIR_SIZE) / 2;
         int y = (render.getScaledWindowHeight() - CROSSHAIR_SIZE) / 2;
 

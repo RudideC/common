@@ -1,6 +1,6 @@
 package org.saturnclient.feature.features;
 
-import org.saturnclient.common.provider.ModuleProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.module.PlayerModule;
 import org.saturnclient.config.manager.Property;
 import org.saturnclient.ui.RenderScope;
@@ -24,9 +24,7 @@ public class SpeedometerFeature extends Feature implements HudFeature {
 
     private double cachedSpeed = 0.0;
 
-    private final ModuleProvider modules;
-
-    public SpeedometerFeature(ModuleProvider modules) {
+    public SpeedometerFeature() {
         super(
                 new FeatureDetails("Speedometer", "speed")
                         .description("Displays your current movement speed")
@@ -37,8 +35,6 @@ public class SpeedometerFeature extends Feature implements HudFeature {
                 unitText.named("Unit text"),
                 showLabel.named("Show speed label"),
                 layout.prop());
-
-        this.modules = modules;
     }
 
     // ---------------------------------------------------------------
@@ -47,7 +43,7 @@ public class SpeedometerFeature extends Feature implements HudFeature {
 
     @Override
     public void renderHud(RenderScope scope) {
-        PlayerModule player = modules.player();
+        PlayerModule player = Providers.module.player();
         PlayerModule.Velocity v = player.getVelocity();
         boolean onGround = player.isOnGround();
 

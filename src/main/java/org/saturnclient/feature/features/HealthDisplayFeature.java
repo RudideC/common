@@ -1,6 +1,6 @@
 package org.saturnclient.feature.features;
 
-import org.saturnclient.common.provider.ModuleProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.manager.Property;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
@@ -21,9 +21,7 @@ public class HealthDisplayFeature extends Feature implements HudFeature {
     private static final Property<Integer> decimals = Property.select(0, "0", "1", "2");
     private static final FeatureLayout layout = new FeatureLayout(40, 18);
 
-    private final ModuleProvider modules;
-
-    public HealthDisplayFeature(ModuleProvider modules) {
+    public HealthDisplayFeature() {
         super(
                 new FeatureDetails("Health Display", "health")
                         .description("Displays your current health")
@@ -33,8 +31,6 @@ public class HealthDisplayFeature extends Feature implements HudFeature {
                 displayMode.named("Display mode"),
                 decimals.named("Decimals"),
                 layout.prop());
-
-        this.modules = modules;
     }
 
     // ---------------------------------------------------------------
@@ -43,7 +39,7 @@ public class HealthDisplayFeature extends Feature implements HudFeature {
 
     @Override
     public void renderHud(RenderScope scope) {
-        float health = modules.player().getHealth();
+        float health = Providers.module.player().getHealth();
         if (displayMode.value == 1)
             health /= 2f; // convert to hearts
         renderHealth(health, scope);

@@ -1,6 +1,6 @@
 package org.saturnclient.feature.features;
 
-import org.saturnclient.common.provider.ModuleProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.manager.Property;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
@@ -23,9 +23,7 @@ public class CoordinatesFeature extends Feature implements HudFeature {
             "Newline annotated");
     private static final FeatureLayout layout = new FeatureLayout(40, 18);
 
-    private final ModuleProvider modules;
-
-    public CoordinatesFeature(ModuleProvider modules) {
+    public CoordinatesFeature() {
         super(
                 new FeatureDetails("Coordinates", "coords")
                         .description("Displays your current coordinates")
@@ -34,8 +32,6 @@ public class CoordinatesFeature extends Feature implements HudFeature {
                 enabled.named("Enabled"),
                 displayMethod.named("Display Method"),
                 layout.prop());
-
-        this.modules = modules;
     }
 
     // ---------------------------------------------------------------
@@ -45,9 +41,9 @@ public class CoordinatesFeature extends Feature implements HudFeature {
     @Override
     public void renderHud(RenderScope scope) {
         renderCoords(
-                modules.player().getX(),
-                modules.player().getY(),
-                modules.player().getZ(),
+                Providers.module.player().getX(),
+                Providers.module.player().getY(),
+                Providers.module.player().getZ(),
                 scope);
     }
 

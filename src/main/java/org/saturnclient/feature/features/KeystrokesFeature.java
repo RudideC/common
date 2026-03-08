@@ -1,6 +1,6 @@
 package org.saturnclient.feature.features;
 
-import org.saturnclient.common.provider.ModuleProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.module.PlayerModule;
 import org.saturnclient.config.manager.Property;
 import org.saturnclient.ui.RenderScope;
@@ -44,9 +44,7 @@ public class KeystrokesFeature extends Feature implements HudFeature {
 
     private boolean w, a, s, d, lmb, rmb, space;
 
-    private final ModuleProvider modules;
-
-    public KeystrokesFeature(ModuleProvider modules) {
+    public KeystrokesFeature() {
         super(
                 new FeatureDetails("Keystrokes", "keystrokes")
                         .description("Displays movement keystrokes")
@@ -58,8 +56,6 @@ public class KeystrokesFeature extends Feature implements HudFeature {
                 layout.prop(),
                 clickFg.named("Clicked fg"),
                 clickBg.named("Clicked bg"));
-
-        this.modules = modules;
         layout.renderBackground = false;
     }
 
@@ -69,7 +65,7 @@ public class KeystrokesFeature extends Feature implements HudFeature {
 
     @Override
     public void tick() {
-        PlayerModule player = modules.player();
+        PlayerModule player = Providers.module.player();
         w = player.isForwardPressed();
         a = player.isLeftPressed();
         s = player.isBackPressed();

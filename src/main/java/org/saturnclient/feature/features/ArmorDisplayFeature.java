@@ -1,6 +1,6 @@
 package org.saturnclient.feature.features;
 
-import org.saturnclient.common.provider.ModuleProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.module.PlayerModule;
 import org.saturnclient.common.ref.game.ItemStackRef;
 import org.saturnclient.config.manager.Property;
@@ -22,9 +22,7 @@ public class ArmorDisplayFeature extends Feature implements HudFeature {
     private static final Property<Boolean> useMainHand = Property.bool(true);
     private static final FeatureLayout layout = new FeatureLayout(40, 75);
 
-    private final ModuleProvider modules;
-
-    public ArmorDisplayFeature(ModuleProvider modules) {
+    public ArmorDisplayFeature() {
         super(
                 new FeatureDetails("Armor Display", "armor")
                         .description("Displays armor durability")
@@ -33,8 +31,6 @@ public class ArmorDisplayFeature extends Feature implements HudFeature {
                 enabled.named("Enabled"),
                 useMainHand.named("Use Main Hand"),
                 layout.prop());
-
-        this.modules = modules;
     }
 
     // ---------------------------------------------------------------
@@ -43,7 +39,7 @@ public class ArmorDisplayFeature extends Feature implements HudFeature {
 
     @Override
     public void renderHud(RenderScope scope) {
-        PlayerModule player = modules.player();
+        PlayerModule player = Providers.module.player();
         renderArmor(scope,
                 player.getMainHand(),
                 player.getHelmet(),
@@ -54,7 +50,7 @@ public class ArmorDisplayFeature extends Feature implements HudFeature {
 
     @Override
     public void renderDummy(RenderScope scope) {
-        PlayerModule player = modules.player();
+        PlayerModule player = Providers.module.player();
         renderArmor(scope,
                 player.getDummyMainHand(),
                 player.getDummyHelmet(),

@@ -2,7 +2,7 @@ package org.saturnclient.feature.features;
 
 import java.util.List;
 
-import org.saturnclient.common.provider.ModuleProvider;
+import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.ref.asset.SpriteRef;
 import org.saturnclient.config.manager.Property;
 import org.saturnclient.ui.RenderScope;
@@ -25,9 +25,7 @@ public class StatusEffectsFeature extends Feature implements HudFeature {
     public static final Property<Boolean> enabled = Property.bool(false);
     private static final FeatureLayout layout = new FeatureLayout(60, 0);
 
-    private final ModuleProvider modules;
-
-    public StatusEffectsFeature(ModuleProvider modules) {
+    public StatusEffectsFeature() {
         super(
                 new FeatureDetails("Status Effects", "effect")
                         .description("Displays active status effects")
@@ -35,8 +33,6 @@ public class StatusEffectsFeature extends Feature implements HudFeature {
                         .tags("Utility"),
                 enabled.named("Enabled"),
                 layout.prop());
-
-        this.modules = modules;
     }
 
     // ---------------------------------------------------------------
@@ -65,12 +61,12 @@ public class StatusEffectsFeature extends Feature implements HudFeature {
 
     @Override
     public void renderHud(RenderScope scope) {
-        renderEffects(scope, modules.player().getActiveEffects());
+        renderEffects(scope, Providers.module.player().getActiveEffects());
     }
 
     @Override
     public void renderDummy(RenderScope scope) {
-        renderEffects(scope, modules.player().getDummyEffects());
+        renderEffects(scope, Providers.module.player().getDummyEffects());
     }
 
     // ---------------------------------------------------------------
