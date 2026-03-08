@@ -66,6 +66,8 @@ public interface PlayerModule {
 
     /** Immutable snapshot of the player's velocity components. */
     final class Velocity {
+        public static final Velocity ZERO = new Velocity(0, 0, 0);
+
         public final double x;
         public final double y;
         public final double z;
@@ -91,13 +93,13 @@ public interface PlayerModule {
      * Returns a list of the player’s currently active effects.
      * Safe default: empty list if no player is present.
      */
-    List<StatusEffectsFeature.EffectView> getActiveEffects();
+    List<? extends StatusEffectsFeature.EffectView> getActiveEffects();
 
     /**
      * Returns a list of dummy effects used in HUD editor / preview mode.
      * Safe default: empty list.
      */
-    List<StatusEffectsFeature.EffectView> getDummyEffects();
+    List<? extends StatusEffectsFeature.EffectView> getDummyEffects();
 
     // ---------------------------------------------------------------
     // Inventory / equipment
