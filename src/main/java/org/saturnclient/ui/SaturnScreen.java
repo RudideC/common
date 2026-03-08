@@ -21,7 +21,7 @@ public abstract class SaturnScreen {
     // Saturn Screen
     public List<Element> elements = new ArrayList<>();
     public float backgroundOpacity = 1.0f;
-    protected Instant start = null;
+    public Instant start = null;
     public int backgroundBlur = 10;
 
     // Provider
@@ -31,7 +31,7 @@ public abstract class SaturnScreen {
         this.title = title;
     }
 
-    protected void init() {
+    public void init() {
         elements.clear();
         width = provider.getWidth();
         height = provider.getHeight();
