@@ -1,22 +1,19 @@
 package org.saturnclient.client;
 
 import java.util.UUID;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.saturnclient.client.player.SaturnPlayer;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.ref.game.MinecraftClientRef;
+import org.saturnclient.cosmetics.Cloaks;
+import org.saturnclient.cosmetics.Hats;
 
 import dev.selimaj.session.Session;
 
 public class ServiceClient {
     private static Session session;
     public static UUID uuid;
-
-    public static final List<String> availableCloaks = new ArrayList<>();
-    public static final List<String> availableHats = new ArrayList<>();
 
     public static boolean connectTimeout() {
         try {
@@ -61,11 +58,11 @@ public class ServiceClient {
                     .get();
 
             for (String availableCloak : response.cloaks()) {
-                availableCloaks.add(availableCloak);
+                Cloaks.availableCloaks.add(availableCloak);
             }
 
             for (String availableHat : response.hats()) {
-                availableHats.add(availableHat);
+                Hats.availableHats.add(availableHat);
             }
 
             eventHandlers();
@@ -123,7 +120,7 @@ public class ServiceClient {
                 if (throwable != null) {
                     throwable.printStackTrace();
                 } else {
-                    availableCloaks.add(itemId);
+                    Cloaks.availableCloaks.add(itemId);
                 }
             });
         } catch (Exception e) {
@@ -137,7 +134,7 @@ public class ServiceClient {
                 if (throwable != null) {
                     throwable.printStackTrace();
                 } else {
-                    availableHats.add(itemId);
+                    Hats.availableHats.add(itemId);
                 }
             });
         } catch (Exception e) {
