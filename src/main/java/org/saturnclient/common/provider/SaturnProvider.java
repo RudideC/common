@@ -10,8 +10,6 @@ public interface SaturnProvider {
 
     public abstract boolean isKeyPressed(int key);
 
-    public abstract int getWidth(String text, int font);
-
     public abstract void registerBufferedImageTexture(IdentifierRef i, BufferedImage bi);
 
     public abstract String getKeyName(int key);

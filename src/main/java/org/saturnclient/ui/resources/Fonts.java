@@ -1,7 +1,7 @@
 package org.saturnclient.ui.resources;
 
-import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.ref.asset.IdentifierRef;
+import org.saturnclient.common.ref.render.TextRef;
 
 public class Fonts {
     public static final IdentifierRef INTER = IdentifierRef.ofSaturn("inter");
@@ -19,16 +19,25 @@ public class Fonts {
         }
     }
 
+    public static TextRef setFont(String text, IdentifierRef font) {
+        return TextRef.literal(text).withFont(font);
+    }
+
+    public static TextRef setFont(String text, int font) {
+        return TextRef.literal(text).withFont(getFont(font));
+    }
+
     public static int getWidth(String text, int font) {
         int w = 0;
         for (String line : text.split("\n")) {
-            w = Math.max(w, Providers.saturn.getWidth(line, font));
+            w = Math.max(w, getWidth(line, setFont(text, font).getWidth()));
         }
+
         if (font == 0) {
-            return w * 2;
-        } else {
-            return w;
+            w *= 2;
         }
+
+        return w;
     }
 
     public static int getHeight() {
