@@ -2,13 +2,13 @@ package org.saturnclient.ui.components.inputs;
 
 import java.awt.Color;
 
-import org.saturnclient.config.property.Property;
+import org.saturnclient.config.property.ColorProperty;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;
 import org.saturnclient.ui.RenderScope;
 
-public class HexInput extends Element {
-    public Property<Integer> prop;
+public class ColorInput extends Element {
+    public ColorProperty prop;
 
     // Picker state
     private boolean open = false;
@@ -26,7 +26,7 @@ public class HexInput extends Element {
     private static final int SLIDER_HEIGHT = 10;
     private static final int HUE_SLIDER_HEIGHT = 10;
 
-    public HexInput(Property<Integer> prop) {
+    public ColorInput(ColorProperty prop) {
         this.prop = prop;
         this.width = 58;
         this.height = 20;

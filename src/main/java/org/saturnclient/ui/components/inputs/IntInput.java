@@ -1,13 +1,13 @@
 package org.saturnclient.ui.components.inputs;
 
 import org.saturnclient.config.ConfigManager;
-import org.saturnclient.config.property.Property;
+import org.saturnclient.config.property.IntProperty;
 import org.saturnclient.ui.resources.Fonts;
 
 public class IntInput extends Input {
-    public Property<Integer> prop;
+    public IntProperty prop;
 
-    public IntInput(Property<Integer> prop) {
+    public IntInput(IntProperty prop) {
         this.width = 120;
         this.height = Fonts.getHeight();
         this.prop = prop;

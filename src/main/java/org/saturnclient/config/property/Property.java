@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import java.util.Map;
 
 public abstract class Property {
+    public boolean isReset = false;
+
     // ---------- Factory Methods ----------
 
     public static NamespaceProperty namespace(Map<String, Property> value) {

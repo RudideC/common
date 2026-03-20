@@ -1,6 +1,7 @@
 package org.saturnclient.ui.elements;
 
 import org.saturnclient.config.Theme;
+import org.saturnclient.config.property.ColorProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;
@@ -10,9 +11,9 @@ import org.saturnclient.ui.resources.Fonts;
 import org.saturnclient.ui.resources.Textures;
 
 public class Notification extends Element {
-    private static Property<Integer> error = Property.color(0xFFbf212f);
-    private static Property<Integer> info = Property.color(0xFF264b96);
-    private static Property<Integer> success = Property.color(0xFF27b376);
+    private static ColorProperty error = Property.color(0xFFbf212f);
+    private static ColorProperty info = Property.color(0xFF264b96);
+    private static ColorProperty success = Property.color(0xFF27b376);
 
     public static enum NotificationKind {
         Error,

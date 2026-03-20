@@ -3,16 +3,16 @@ package org.saturnclient.ui.components.inputs;
 import org.saturnclient.common.provider.GLFWProvider;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.Theme;
-import org.saturnclient.config.property.Property;
+import org.saturnclient.config.property.KeybindingProperty;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
 
 public class KeybindingSelector extends Element {
-    Property<Integer> prop;
+    KeybindingProperty prop;
 
-    public KeybindingSelector(Property<Integer> prop) {
+    public KeybindingSelector(KeybindingProperty prop) {
         this.prop = prop;
         this.width = 120;
         this.height = Fonts.getHeight();

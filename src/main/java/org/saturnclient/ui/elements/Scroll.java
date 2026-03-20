@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.saturnclient.config.Theme;
+import org.saturnclient.config.property.IntProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;
@@ -11,9 +12,9 @@ import org.saturnclient.ui.ElementRenderer;
 import org.saturnclient.ui.RenderScope;
 
 public class Scroll extends Element {
-    private static Property<Integer> scrollBarRadius = Property.integer(10);
-    private static Property<Integer> scrollBarWidth = Property.integer(5);
-    private static Property<Integer> scrollBarPadding = Property.integer(5);
+    private static IntProperty scrollBarRadius = Property.integer(10);
+    private static IntProperty scrollBarWidth = Property.integer(5);
+    private static IntProperty scrollBarPadding = Property.integer(5);
 
     int padding = 0;
 

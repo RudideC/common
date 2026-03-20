@@ -1,7 +1,7 @@
 package org.saturnclient.ui.components.inputs;
 
 import org.saturnclient.config.Theme;
-import org.saturnclient.config.property.Property;
+import org.saturnclient.config.property.SelectProperty;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;
 import org.saturnclient.ui.RenderScope;
@@ -9,9 +9,9 @@ import org.saturnclient.ui.Utils;
 import org.saturnclient.ui.resources.Fonts;
 
 public class Select extends Element {
-    private Property<Integer> prop;
+    private SelectProperty prop;
 
-    public Select(Property<Integer> prop) {
+    public Select(SelectProperty prop) {
         this.prop = prop;
         this.width = 150;
         this.height = 15;

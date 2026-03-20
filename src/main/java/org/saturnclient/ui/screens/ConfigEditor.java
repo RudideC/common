@@ -8,7 +8,7 @@ import org.saturnclient.config.property.Property;
 import org.saturnclient.ui.SaturnScreen;
 import org.saturnclient.ui.components.Sidebar;
 import org.saturnclient.ui.components.inputs.FloatInput;
-import org.saturnclient.ui.components.inputs.HexInput;
+import org.saturnclient.ui.components.inputs.ColorInput;
 import org.saturnclient.ui.components.inputs.IntInput;
 import org.saturnclient.ui.components.inputs.KeybindingSelector;
 import org.saturnclient.ui.components.inputs.Select;
@@ -78,7 +78,7 @@ public class ConfigEditor extends SaturnScreen {
                     break;
 
                 case HEX:
-                    configScroll.draw(new HexInput((Property<Integer>) prop).position(w / 2, modY));
+                    configScroll.draw(new ColorInput((Property<Integer>) prop).position(w / 2, modY));
                     break;
 
                 case INTEGER:

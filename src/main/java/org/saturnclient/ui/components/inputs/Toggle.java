@@ -1,15 +1,15 @@
 package org.saturnclient.ui.components.inputs;
 
 import org.saturnclient.config.Theme;
-import org.saturnclient.config.property.Property;
+import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;
 import org.saturnclient.ui.RenderScope;
 
 public class Toggle extends Element {
-    private Property<Boolean> prop;
+    private BoolProperty prop;
 
-    public Toggle(Property<Boolean> prop) {
+    public Toggle(BoolProperty prop) {
         this.prop = prop;
         this.width = 60;
         this.height = 30;

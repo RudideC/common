@@ -1,13 +1,13 @@
 package org.saturnclient.ui.components.inputs;
 
 import org.saturnclient.config.ConfigManager;
-import org.saturnclient.config.property.Property;
+import org.saturnclient.config.property.FloatProperty;
 import org.saturnclient.ui.resources.Fonts;
 
 public class FloatInput extends Input {
-    public Property<Float> prop;
+    public FloatProperty prop;
 
-    public FloatInput(Property<Float> prop) {
+    public FloatInput(FloatProperty prop) {
         this.width = 120;
         this.height = Fonts.getHeight();
         this.prop = prop;
