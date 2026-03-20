@@ -1,6 +1,8 @@
 package org.saturnclient.feature.features;
 
 import org.saturnclient.common.provider.Providers;
+import org.saturnclient.config.property.BoolProperty;
+import org.saturnclient.config.property.KeybindingProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.common.module.RenderModule;
 import org.saturnclient.common.provider.GLFWProvider;
@@ -16,9 +18,9 @@ import org.saturnclient.feature.FeatureDetails;
  */
 public class FreelookFeature extends Feature {
 
-    private static final Property<Boolean> enabled = Property.bool(false);
-    private static final Property<Boolean> toggle = Property.bool(true);
-    public static final Property<Integer> freelookKey = Property.keybinding(GLFWProvider.GLFW_KEY_H);
+    private static final BoolProperty enabled = Property.bool(false);
+    private static final BoolProperty toggle = Property.bool(true);
+    public static final KeybindingProperty freelookKey = Property.keybinding(GLFWProvider.GLFW_KEY_H);
 
     /** Whether freelook is currently active (read by the camera mixin). */
     public static boolean isFreeLooking = false;

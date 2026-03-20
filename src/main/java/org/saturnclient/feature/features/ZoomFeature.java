@@ -1,6 +1,9 @@
 package org.saturnclient.feature.features;
 
 import org.saturnclient.common.provider.GLFWProvider;
+import org.saturnclient.config.property.BoolProperty;
+import org.saturnclient.config.property.FloatProperty;
+import org.saturnclient.config.property.KeybindingProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.feature.Feature;
 import org.saturnclient.feature.FeatureDetails;
@@ -15,10 +18,10 @@ import org.saturnclient.feature.FeatureDetails;
  */
 public class ZoomFeature extends Feature {
 
-    private static final Property<Boolean> enabled = Property.bool(false);
-    private static final Property<Boolean> toggle = Property.bool(false);
-    public static final Property<Integer> zoomKey = Property.keybinding(GLFWProvider.GLFW_KEY_C);
-    public static final Property<Float> zoomLevel = Property.floatProp(3.0f);
+    private static final BoolProperty enabled = Property.bool(false);
+    private static final BoolProperty toggle = Property.bool(false);
+    public static final KeybindingProperty zoomKey = Property.keybinding(GLFWProvider.GLFW_KEY_C);
+    public static final FloatProperty zoomLevel = Property.floatProp(3.0f);
 
     /** Whether zoom is currently active (read by the FOV mixin). */
     public static boolean isZooming = false;

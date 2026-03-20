@@ -1,7 +1,9 @@
 package org.saturnclient.feature.features;
 
 import org.saturnclient.common.provider.Providers;
+import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
+import org.saturnclient.config.property.SelectProperty;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
 import org.saturnclient.feature.Feature;
@@ -16,9 +18,9 @@ import org.saturnclient.feature.HudFeature;
  */
 public class HealthDisplayFeature extends Feature implements HudFeature {
 
-    private static final Property<Boolean> enabled = Property.bool(false);
-    private static final Property<Integer> displayMode = Property.select(0, "Health", "Hearts");
-    private static final Property<Integer> decimals = Property.select(0, "0", "1", "2");
+    private static final BoolProperty enabled = Property.bool(false);
+    private static final SelectProperty displayMode = Property.select(0, "Health", "Hearts");
+    private static final SelectProperty decimals = Property.select(0, "0", "1", "2");
     private static final FeatureLayout layout = new FeatureLayout(40, 18);
 
     public HealthDisplayFeature() {

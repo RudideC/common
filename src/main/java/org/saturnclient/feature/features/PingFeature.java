@@ -1,6 +1,7 @@
 package org.saturnclient.feature.features;
 
 import org.saturnclient.common.provider.Providers;
+import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
@@ -15,7 +16,7 @@ import org.saturnclient.feature.HudFeature;
  */
 public class PingFeature extends Feature implements HudFeature {
 
-    private static final Property<Boolean> enabled = Property.bool(false);
+    private static final BoolProperty enabled = Property.bool(false);
     private static final FeatureLayout layout = new FeatureLayout(60, Fonts.getHeight());
 
     public PingFeature() {

@@ -3,6 +3,7 @@ package org.saturnclient.feature.features;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.module.PlayerModule;
 import org.saturnclient.common.ref.game.ItemStackRef;
+import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.feature.Feature;
 import org.saturnclient.feature.FeatureDetails;
@@ -18,8 +19,8 @@ import org.saturnclient.ui.RenderScope;
  */
 public class ArmorDisplayFeature extends Feature implements HudFeature {
 
-    private static final Property<Boolean> enabled = Property.bool(false);
-    private static final Property<Boolean> useMainHand = Property.bool(true);
+    private static final BoolProperty enabled = Property.bool(false);
+    private static final BoolProperty useMainHand = Property.bool(true);
     private static final FeatureLayout layout = new FeatureLayout(40, 75);
 
     public ArmorDisplayFeature() {

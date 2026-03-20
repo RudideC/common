@@ -1,7 +1,9 @@
 package org.saturnclient.feature.features;
 
 import org.saturnclient.common.module.EntityModule;
+import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
+import org.saturnclient.config.property.SelectProperty;
 import org.saturnclient.feature.Feature;
 import org.saturnclient.feature.FeatureDetails;
 
@@ -22,21 +24,21 @@ public class NametagsFeature extends Feature {
     // Configuration
     // ---------------------------------------------------------------
 
-    private static final Property<Boolean> enabled = Property.bool(false);
-    private static final Property<Boolean> healthDisplay = Property.bool(false);
-    private static final Property<Boolean> players = Property.bool(true);
-    private static final Property<Boolean> hostile = Property.bool(false);
-    private static final Property<Boolean> passive = Property.bool(false);
-    private static final Property<Boolean> heartEmoji = Property.bool(true);
-    private static final Property<Boolean> obfuscate = Property.bool(false);
+    private static final BoolProperty enabled = Property.bool(false);
+    private static final BoolProperty healthDisplay = Property.bool(false);
+    private static final BoolProperty players = Property.bool(true);
+    private static final BoolProperty hostile = Property.bool(false);
+    private static final BoolProperty passive = Property.bool(false);
+    private static final BoolProperty heartEmoji = Property.bool(true);
+    private static final BoolProperty obfuscate = Property.bool(false);
 
-    private static final Property<Integer> unit = Property.select(0, "Health", "Hearts");
-    private static final Property<Integer> format = Property.select(0, "Value", "Value / Total", "%");
+    private static final SelectProperty unit = Property.select(0, "Health", "Hearts");
+    private static final SelectProperty format = Property.select(0, "Value", "Value / Total", "%");
 
-    private static final Property<Integer> nameColor = Property.select(15,
+    private static final SelectProperty nameColor = Property.select(15,
             "Black", "Dark Blue", "Dark Green", "Dark Aqua", "Dark Red", "Dark Purple",
             "Gold", "Gray", "Dark Gray", "Blue", "Green", "Aqua", "Red", "Light Purple", "Yellow", "White");
-    private static final Property<Integer> healthColor = Property.select(12,
+    private static final SelectProperty healthColor = Property.select(12,
             "Black", "Dark Blue", "Dark Green", "Dark Aqua", "Dark Red", "Dark Purple",
             "Gold", "Gray", "Dark Gray", "Blue", "Green", "Aqua", "Red", "Light Purple", "Yellow", "White");
 

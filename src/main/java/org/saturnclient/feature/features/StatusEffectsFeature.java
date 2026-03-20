@@ -2,8 +2,10 @@ package org.saturnclient.feature.features;
 
 import java.util.List;
 
+import org.saturnclient.common.provider.ModuleProvider;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.ref.asset.SpriteRef;
+import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.feature.Feature;
@@ -22,7 +24,7 @@ import org.saturnclient.feature.HudFeature;
  */
 public class StatusEffectsFeature extends Feature implements HudFeature {
 
-    public static final Property<Boolean> enabled = Property.bool(false);
+    public static final BoolProperty enabled = Property.bool(false);
     private static final FeatureLayout layout = new FeatureLayout(60, 0);
 
     public StatusEffectsFeature() {

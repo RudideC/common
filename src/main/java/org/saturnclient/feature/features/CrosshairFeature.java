@@ -1,6 +1,7 @@
 package org.saturnclient.feature.features;
 
 import org.saturnclient.common.provider.Providers;
+import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.common.module.RenderModule;
 import org.saturnclient.ui.RenderScope;
@@ -14,7 +15,7 @@ import org.saturnclient.feature.FeatureDetails;
  */
 public class CrosshairFeature extends Feature {
 
-    public static final Property<Boolean> enabled = Property.bool(false);
+    public static final BoolProperty enabled = Property.bool(false);
 
     private static final int CROSSHAIR_SIZE = 15;
 

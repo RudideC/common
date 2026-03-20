@@ -1,5 +1,7 @@
 package org.saturnclient.feature.features;
 
+import org.saturnclient.config.property.BoolProperty;
+import org.saturnclient.config.property.IntProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.feature.Feature;
 import org.saturnclient.feature.FeatureDetails;
@@ -16,8 +18,8 @@ import org.saturnclient.feature.FeatureDetails;
  */
 public class FullbrightFeature extends Feature {
 
-    private static final Property<Boolean> enabled = Property.bool(false);
-    private static final Property<Integer> brightness = Property.integer(100);
+    private static final BoolProperty enabled = Property.bool(false);
+    private static final IntProperty brightness = Property.integer(100);
 
     public FullbrightFeature() {
         super(

@@ -1,6 +1,8 @@
 package org.saturnclient.feature.features;
 
 import org.saturnclient.common.provider.Providers;
+import org.saturnclient.config.property.BoolProperty;
+import org.saturnclient.config.property.ColorProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.common.module.PlayerModule;
 import org.saturnclient.ui.RenderScope;
@@ -19,12 +21,12 @@ public class KeystrokesFeature extends Feature implements HudFeature {
     // Configuration
     // ---------------------------------------------------------------
 
-    private static final Property<Boolean> enabled = Property.bool(false);
-    private static final Property<Boolean> showMouse = Property.bool(true);
-    private static final Property<Boolean> showSpace = Property.bool(false);
+    private static final BoolProperty enabled = Property.bool(false);
+    private static final BoolProperty showMouse = Property.bool(true);
+    private static final BoolProperty showSpace = Property.bool(false);
 
-    private static final Property<Integer> clickBg = Property.color(0xFFCCCCCC);
-    private static final Property<Integer> clickFg = Property.color(0xFFFFFFFF);
+    private static final ColorProperty clickBg = Property.color(0xFFCCCCCC);
+    private static final ColorProperty clickFg = Property.color(0xFFFFFFFF);
 
     private static final FeatureLayout layout = new FeatureLayout(78, 54);
 

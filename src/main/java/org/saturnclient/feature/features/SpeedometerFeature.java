@@ -1,7 +1,9 @@
 package org.saturnclient.feature.features;
 
 import org.saturnclient.common.provider.Providers;
+import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
+import org.saturnclient.config.property.SelectProperty;
 import org.saturnclient.common.module.PlayerModule;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
@@ -16,10 +18,10 @@ import org.saturnclient.feature.HudFeature;
  */
 public class SpeedometerFeature extends Feature implements HudFeature {
 
-    private static final Property<Boolean> enabled = Property.bool(false);
-    private static final Property<Integer> axis = Property.select(1, "Absolute", "Horizontal", "Vertical");
-    private static final Property<Integer> unitText = Property.select(0, "None", "Blocks/s", "blocks/s", "b/s");
-    private static final Property<Boolean> showLabel = Property.bool(true);
+    private static final BoolProperty enabled = Property.bool(false);
+    private static final SelectProperty axis = Property.select(1, "Absolute", "Horizontal", "Vertical");
+    private static final SelectProperty unitText = Property.select(0, "None", "Blocks/s", "blocks/s", "b/s");
+    private static final BoolProperty showLabel = Property.bool(true);
     private static final FeatureLayout layout = new FeatureLayout(40, 18);
 
     private double cachedSpeed = 0.0;

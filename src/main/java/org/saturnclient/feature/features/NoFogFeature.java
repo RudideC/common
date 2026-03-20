@@ -1,5 +1,6 @@
 package org.saturnclient.feature.features;
 
+import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.feature.Feature;
 import org.saturnclient.feature.FeatureDetails;
@@ -13,8 +14,8 @@ import org.saturnclient.feature.FeatureDetails;
  */
 public class NoFogFeature extends Feature {
 
-    private static final Property<Boolean> enabled = Property.bool(false);
-    private static final Property<Boolean> liquids = Property.bool(false);
+    private static final BoolProperty enabled = Property.bool(false);
+    private static final BoolProperty liquids = Property.bool(false);
 
     public NoFogFeature() {
         super(

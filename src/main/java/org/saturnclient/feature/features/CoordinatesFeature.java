@@ -1,7 +1,9 @@
 package org.saturnclient.feature.features;
 
 import org.saturnclient.common.provider.Providers;
+import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
+import org.saturnclient.config.property.SelectProperty;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
 import org.saturnclient.feature.Feature;
@@ -15,8 +17,8 @@ import org.saturnclient.feature.HudFeature;
  */
 public class CoordinatesFeature extends Feature implements HudFeature {
 
-    private static final Property<Boolean> enabled = Property.bool(false);
-    private static final Property<Integer> displayMethod = Property.select(0,
+    private static final BoolProperty enabled = Property.bool(false);
+    private static final SelectProperty displayMethod = Property.select(0,
             "Flat",
             "Flat annotated",
             "Newline",

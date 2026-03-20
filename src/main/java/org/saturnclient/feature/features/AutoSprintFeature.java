@@ -1,6 +1,7 @@
 package org.saturnclient.feature.features;
 
 import org.saturnclient.common.provider.Providers;
+import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.common.module.NetworkModule;
 import org.saturnclient.common.module.PlayerModule;
@@ -13,7 +14,7 @@ import org.saturnclient.feature.FeatureDetails;
  */
 public class AutoSprintFeature extends Feature {
 
-    private static final Property<Boolean> enabled = Property.bool(false);
+    private static final BoolProperty enabled = Property.bool(false);
 
     public AutoSprintFeature() {
         super(

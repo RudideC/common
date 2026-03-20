@@ -5,7 +5,9 @@ import java.time.format.DateTimeFormatter;
 
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
+import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
+import org.saturnclient.config.property.SelectProperty;
 import org.saturnclient.feature.Feature;
 import org.saturnclient.feature.FeatureDetails;
 import org.saturnclient.feature.FeatureLayout;
@@ -17,9 +19,9 @@ import org.saturnclient.feature.HudFeature;
  */
 public class ClockFeature extends Feature implements HudFeature {
 
-    private static final Property<Boolean> enabled = Property.bool(false);
-    private static final Property<Integer> format = Property.select(0, "24 hour", "12 hour");
-    private static final Property<Boolean> showSeconds = Property.bool(false);
+    private static final BoolProperty enabled = Property.bool(false);
+    private static final SelectProperty format = Property.select(0, "24 hour", "12 hour");
+    private static final BoolProperty showSeconds = Property.bool(false);
     private static final FeatureLayout layout = new FeatureLayout(60, Fonts.getHeight());
 
     public ClockFeature() {
