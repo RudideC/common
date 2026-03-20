@@ -1,6 +1,8 @@
 package org.saturnclient.config;
 
+import org.saturnclient.config.property.IntProperty;
 import org.saturnclient.config.property.Property;
+import org.saturnclient.config.property.SelectProperty;
 
 public class AnimationConfig {
     public static ConfigManager config;
@@ -35,9 +37,9 @@ public class AnimationConfig {
     }
 
     // Animation properties
-    public final Property<Integer> duration;
-    public final Property<Integer> stagger;
-    public final Property<Integer> curve;
+    public final IntProperty duration;
+    public final IntProperty stagger;
+    public final SelectProperty curve;
 
     public AnimationConfig(boolean enabled, int delay, int stagger) {
         this.duration = Property.integer(delay);

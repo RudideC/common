@@ -5,17 +5,19 @@ import java.io.File;
 import org.saturnclient.common.provider.GLFWProvider;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.ref.asset.IdentifierRef;
+import org.saturnclient.config.property.BoolProperty;
+import org.saturnclient.config.property.KeybindingProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.ui.resources.Textures;
 
 public class Config {
     public static ConfigManager config;
 
-    public static Property<Boolean> realisticLogo = Property.bool(false);
-    public static Property<Boolean> saturnTitleScreen = Property.bool(true);
-    public static Property<Boolean> cloakPhysics = Property.bool(true);
-    public static Property<Integer> openEmoteWheel = Property.keybinding(GLFWProvider.GLFW_KEY_B);
-    public static Property<Boolean> stagger = Property.bool(true);
+    public static BoolProperty realisticLogo = Property.bool(false);
+    public static BoolProperty saturnTitleScreen = Property.bool(true);
+    public static BoolProperty cloakPhysics = Property.bool(true);
+    public static BoolProperty stagger = Property.bool(true);
+    public static KeybindingProperty openEmoteWheel = Property.keybinding(GLFWProvider.GLFW_KEY_B);
 
     public static IdentifierRef getLogo() {
         return realisticLogo.value ? Textures.REALISTIC_LOGO : Textures.LOGO;

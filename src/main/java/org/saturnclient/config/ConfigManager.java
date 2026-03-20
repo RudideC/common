@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.saturnclient.config.property.NamespaceProperty;
 import org.saturnclient.config.property.Property;
 
 public class ConfigManager {
@@ -18,11 +19,11 @@ public class ConfigManager {
     private static File configFile;
 
     // SINGLE ROOT TREE
-    private static final Map<String, Property<?>> ROOT = new LinkedHashMap<>();
+    private static final Map<String, Property> ROOT = new LinkedHashMap<>();
 
     private static JsonNode cachedJson = null;
 
-    private final Map<String, Property<?>> currentMap;
+    private final Map<String, Property> currentMap;
 
     private final String[] path;
 
@@ -63,7 +64,7 @@ public class ConfigManager {
     /**
      * Add a property
      */
-    public <T> Property<T> property(String name, Property<T> value) {
+    public Property property(String name, Property value) {
         currentMap.put(name, value);
         loadSingleProperty(name, value);
         return value;
@@ -105,13 +106,11 @@ public class ConfigManager {
     /**
      * Recursive save
      */
-    private static void saveRecursive(ObjectNode json, Map<String, Property<?>> map) {
+    private static void saveRecursive(ObjectNode json, Map<String, Property> map) {
         map.forEach((name, prop) -> {
-            if (prop.isNamespace()) {
-
+            if (prop instanceof NamespaceProperty n) {
                 ObjectNode child = json.objectNode();
-                saveRecursive(child, prop.getNamespaceMap());
-
+                saveRecursive(child, n.value);
                 json.set(name, child);
 
             } else {
@@ -125,7 +124,7 @@ public class ConfigManager {
     /**
      * Recursive load
      */
-    private static void loadRecursive(ObjectNode json, Map<String, Property<?>> map) {
+    private static void loadRecursive(ObjectNode json, Map<String, Property> map) {
 
         map.forEach((name, prop) -> {
 
@@ -133,9 +132,8 @@ public class ConfigManager {
             if (element == null)
                 return;
 
-            if (prop.isNamespace() && element.isObject()) {
-
-                loadRecursive((ObjectNode) element, prop.getNamespaceMap());
+            if (prop instanceof NamespaceProperty n) {
+                loadRecursive((ObjectNode) element, n.value);
 
             } else {
 
@@ -149,7 +147,7 @@ public class ConfigManager {
     /**
      * Load only a single property immediately after creation
      */
-    private void loadSingleProperty(String name, Property<?> prop) {
+    private void loadSingleProperty(String name, Property prop) {
 
         JsonNode source = cachedJson != null ? cachedJson : loadAndCache();
         if (source == null || !source.isObject())
@@ -201,7 +199,7 @@ public class ConfigManager {
 
     }
 
-    public Map<String, Property<?>> getProperties() {
+    public Map<String, Property> getProperties() {
         return currentMap;
     }
 }
