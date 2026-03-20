@@ -69,6 +69,8 @@ public class ServiceClient {
 
             SaturnPlayer.set(new SaturnPlayer(uuid, username, response.cloak(), response.hat()));
 
+            Cloaks.loadCloak(response.cloak());
+
             return true;
         } catch (Exception e) {
             Providers.saturn.logError("Authentication failed", e);
