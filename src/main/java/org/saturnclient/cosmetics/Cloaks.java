@@ -23,7 +23,7 @@ import org.saturnclient.cosmetics.utils.GifDecoder;
  */
 public class Cloaks {
     public static final String[] ALL_CLOAKS = { "glitch", "mercedes_flow", "crimson_mark", "bmw", "amg", "amg_petronas",
-            "ferrari", "redbull", "black_hole_amethyst", "black_hole_flame", "black_hole_white" };
+            "ferrari", "redbull", "black_hole_amethyst", "black_hole_flame", "black_hole_white", "albania_mark" };
     private static final String[] ANIMATED_CLOAKS = { "glitch", "black_hole_amethyst", "black_hole_flame",
             "black_hole_white" };
 
