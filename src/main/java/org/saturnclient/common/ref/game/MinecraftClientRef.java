@@ -35,5 +35,9 @@ public interface MinecraftClientRef {
 
     public void scheduleStop();
 
-   public void executeOnThread(Runnable runnable);
+    public void executeOnThread(Runnable runnable);
+
+    public String getPlayerListEntry(UUID uuid);
+
+    public UUID getPlayerListEntryUUID(String name);
 }

@@ -183,18 +183,18 @@ public class ServiceClient {
         });
     }
 
-    public static void player(UUID uuid, String name) {
+    public static SaturnPlayer getPlayer(UUID uuid, String name) {
         try {
-            session.request(ServiceMethods.GetPlayer, uuid.toString())
-                    .whenComplete((user, throwable) -> {
-                        if (throwable != null) {
-                            throwable.printStackTrace();
-                        } else if (user != null) {
-                            SaturnPlayer.set(user.toSaturnPlayer(uuid, name));
-                        }
-                    });
+            ServiceMethods.Types.Player player = session.request(ServiceMethods.GetPlayer, uuid.toString()).join();
+
+            if (player == null)
+                return null;
+
+            return player.toSaturnPlayer(uuid, name);
         } catch (Exception e) {
             Providers.saturn.logError("Failed to get player", e);
         }
+
+        return null;
     }
 }

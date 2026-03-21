@@ -2,13 +2,23 @@ package org.saturnclient.client.player;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.saturnclient.client.ServiceClient;
+import org.saturnclient.common.provider.Providers;
 
 public class SaturnPlayer {
-    private static Map<UUID, SaturnPlayer> PLAYERS = new HashMap<>();
-    private static Map<String, UUID> PLAYER_NAMES = new HashMap<>();
+    private static final Map<UUID, SaturnPlayer> PLAYERS = new HashMap<>();
+
+    private static final Queue<UUID> QUEUE = new ConcurrentLinkedQueue<>();
+    private static final Set<UUID> QUEUED = ConcurrentHashMap.newKeySet();
+
+    private static volatile boolean RUNNING = false;
+    private static Thread WORKER;
 
     public String cloak = "";
     public String hat = "";
@@ -29,19 +39,30 @@ public class SaturnPlayer {
         return PLAYERS.get(ServiceClient.uuid);
     }
 
+    public static SaturnPlayer get(String name, UUID uuid) {
+        if (uuid == null)
+            return null;
+
+        SaturnPlayer player = PLAYERS.get(uuid);
+
+        if (player == null && QUEUED.add(uuid)) {
+            PLAYERS.put(uuid, null);
+            QUEUE.add(uuid);
+            startPlayerThread();
+        }
+
+        return player;
+    }
+
     public static SaturnPlayer get(UUID uuid) {
-        return PLAYERS.get(uuid);
+        return get(Providers.saturn.getClient().getPlayerListEntry(uuid), uuid);
     }
 
     public static SaturnPlayer get(String name) {
-        UUID uuid = PLAYER_NAMES.get(name);
-        if (uuid == null)
-            return null;
-        return PLAYERS.get(uuid);
+        return get(name, Providers.saturn.getClient().getPlayerListEntryUUID(name));
     }
 
     public static void set(SaturnPlayer player) {
-        PLAYER_NAMES.put(player.name, player.uuid);
         PLAYERS.put(player.uuid, player);
     }
 
@@ -51,4 +72,52 @@ public class SaturnPlayer {
                 .toArray(String[]::new);
     }
 
+    public static synchronized void startPlayerThread() {
+        if (RUNNING)
+            return;
+
+        RUNNING = true;
+
+        WORKER = new Thread(() -> {
+            long lastWorkTime = System.currentTimeMillis();
+
+            while (true) {
+                UUID uuid = QUEUE.poll();
+
+                if (uuid != null) {
+                    try {
+                        String name = Providers.saturn.getClient().getPlayerListEntry(uuid);
+
+                        SaturnPlayer player = ServiceClient.getPlayer(uuid, name);
+
+                        // Apply on main thread
+                        Providers.saturn.getClient().executeOnThread(() -> {
+                            PLAYERS.put(uuid, player);
+                        });
+
+                    } catch (Exception e) {
+                        Providers.saturn.logError("Failed to fetch player " + uuid, e);
+                    } finally {
+                        QUEUED.remove(uuid);
+                    }
+
+                    lastWorkTime = System.currentTimeMillis();
+                } else {
+                    if (System.currentTimeMillis() - lastWorkTime > 5000) {
+                        break;
+                    }
+
+                    try {
+                        Thread.sleep(50);
+                    } catch (InterruptedException ignored) {
+                    }
+                }
+            }
+
+            RUNNING = false;
+        }, "SaturnPlayer-Worker");
+
+        WORKER.setDaemon(true);
+        WORKER.start();
+    }
 }
