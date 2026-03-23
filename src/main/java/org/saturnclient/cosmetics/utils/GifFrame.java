@@ -5,7 +5,7 @@ import org.saturnclient.common.ref.asset.IdentifierRef;
 /**
  * Represents a single frame of an animated cloak.
  */
-public class AnimatedCloakData {
+public class GifFrame {
 
     private final IdentifierRef textureId;
     private final int delayMs;
@@ -16,7 +16,7 @@ public class AnimatedCloakData {
      * @param textureId The texture identifier for this frame
      * @param delayMs   The delay in milliseconds before the next frame
      */
-    public AnimatedCloakData(IdentifierRef textureId, int delayMs) {
+    public GifFrame(IdentifierRef textureId, int delayMs) {
         this.textureId = textureId;
         this.delayMs = delayMs;
     }

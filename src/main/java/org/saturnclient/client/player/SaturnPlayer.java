@@ -3,9 +3,7 @@ package org.saturnclient.client.player;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
-import java.util.Set;
 import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.saturnclient.client.ServiceClient;
@@ -15,7 +13,6 @@ public class SaturnPlayer {
     private static final Map<UUID, SaturnPlayer> PLAYERS = new HashMap<>();
 
     private static final Queue<UUID> QUEUE = new ConcurrentLinkedQueue<>();
-    private static final Set<UUID> QUEUED = ConcurrentHashMap.newKeySet();
 
     private static volatile boolean RUNNING = false;
     private static Thread WORKER;
@@ -45,7 +42,7 @@ public class SaturnPlayer {
 
         SaturnPlayer player = PLAYERS.get(uuid);
 
-        if (player == null && QUEUED.add(uuid)) {
+        if (player == null) {
             PLAYERS.put(uuid, null);
             QUEUE.add(uuid);
             startPlayerThread();
@@ -97,8 +94,6 @@ public class SaturnPlayer {
 
                     } catch (Exception e) {
                         Providers.saturn.logError("Failed to fetch player " + uuid, e);
-                    } finally {
-                        QUEUED.remove(uuid);
                     }
 
                     lastWorkTime = System.currentTimeMillis();

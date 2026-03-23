@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.saturnclient.cosmetics.utils.AnimatedCloakData;
+import org.saturnclient.cosmetics.utils.GifFrame;
 import org.saturnclient.cosmetics.utils.GifDecoder;
 // import org.saturnclient.cosmetics.utils.IdentifierUtils;
 
@@ -21,18 +21,20 @@ import org.saturnclient.cosmetics.utils.GifDecoder;
  * Originally created by IIpho3nix and modified for Saturn Client by leo.
  */
 public class Cloaks {
-    public static final String[] ALL_CLOAKS = { "glitch", "mercedes_flow", "crimson_mark", "bmw", "amg", "amg_petronas", "ferrari", 
-            "redbull", "black_hole_amethyst", "black_hole_flame", "black_hole_white", "albania_mark", "end", "spanish_empire", "spain_flag" };
+    public static final String[] ALL_CLOAKS = { "glitch", "mercedes_flow", "crimson_mark", "bmw", "amg", "amg_petronas",
+            "ferrari",
+            "redbull", "black_hole_amethyst", "black_hole_flame", "black_hole_white", "albania_mark", "end",
+            "spanish_empire", "spain_flag" };
     private static final String[] ANIMATED_CLOAKS = { "glitch", "black_hole_amethyst", "black_hole_flame",
             "black_hole_white" };
 
     private static final String CLOAKS_RESOURCE_PATH = "assets/saturnclient/textures/cloaks/";
     public static final List<String> availableCloaks = new ArrayList<>();
     public static IdentifierRef cloakCacheIdentifier = null;
-    public static final Map<String, List<AnimatedCloakData>> animatedCloaks = new ConcurrentHashMap<>();
+    public static final Map<String, List<GifFrame>> animatedCloaks = new ConcurrentHashMap<>();
     private static final Map<String, Long> lastFrameTime = new ConcurrentHashMap<>();
 
-    private static final ConcurrentHashMap<String, List<AnimatedCloakData>> CLOAK_CACHE = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String, List<GifFrame>> CLOAK_CACHE = new ConcurrentHashMap<>();
 
     /**
      * Initializes the cloak system.
@@ -88,7 +90,7 @@ public class Cloaks {
         String fileName = cloakName + ".gif";
 
         // Check cache first
-        List<AnimatedCloakData> cached = CLOAK_CACHE.get(fileName);
+        List<GifFrame> cached = CLOAK_CACHE.get(fileName);
         if (cached != null) {
             animatedCloaks.put(cloakName, cached);
             lastFrameTime.put(cloakName, System.currentTimeMillis());
@@ -114,7 +116,7 @@ public class Cloaks {
             }
 
             // Pre-allocate collections with known size
-            List<AnimatedCloakData> animatedFrames = new ArrayList<>(frameCount);
+            List<GifFrame> animatedFrames = new ArrayList<>(frameCount);
             String baseFrameId = fileName.replace(".gif", "");
 
             // Process frames in batch
@@ -127,7 +129,7 @@ public class Cloaks {
 
                 try {
                     Providers.saturn.registerBufferedImageTexture(frameIdentifier, frame);
-                    animatedFrames.add(new AnimatedCloakData(frameIdentifier, delay));
+                    animatedFrames.add(new GifFrame(frameIdentifier, delay));
                 } catch (Exception e) {
                     Providers.saturn.logError("Failed to register frame " + i + " for cloak: " + fileName, e);
                     // Continue with other frames instead of failing completely
@@ -155,7 +157,7 @@ public class Cloaks {
 
     public static IdentifierRef getCurrentCloakTexture(String cloakName) {
         if (Arrays.asList(ANIMATED_CLOAKS).contains(cloakName)) {
-            List<AnimatedCloakData> frames = animatedCloaks.get(cloakName);
+            List<GifFrame> frames = animatedCloaks.get(cloakName);
             if (frames == null || frames.isEmpty()) {
                 return null;
             }
