@@ -1,9 +1,9 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModSpec;
 
 /**
  * NoFogFeature suppresses distance fog and (optionally) liquid fog.
@@ -12,13 +12,13 @@ import org.saturnclient.feature.FeatureDetails;
  * inside a mixin. This class owns the configuration and provides
  * static query methods the mixin calls.
  */
-public class NoFogFeature extends Feature {
+public class NoFogFeature extends Mod {
 
     private static final BoolProperty enabled = Property.bool(false);
 
     public NoFogFeature() {
         super(
-                new FeatureDetails("No Fog", "nofog")
+                new ModSpec("No Fog", "nofog")
                         .description("Stops fog from rendering")
                         .tags("Camera")
                         .version("v0.2.0"),

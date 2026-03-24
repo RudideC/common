@@ -1,12 +1,12 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import org.saturnclient.common.provider.GLFWProvider;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.FloatProperty;
 import org.saturnclient.config.property.KeybindingProperty;
 import org.saturnclient.config.property.Property;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModSpec;
 
 /**
  * ZoomFeature multiplies the camera's field-of-view to create an
@@ -16,7 +16,7 @@ import org.saturnclient.feature.FeatureDetails;
  * {@link #shouldZoom()} and {@link #getZoomLevel()} each frame.
  * No ModuleProvider is needed — there is no per-tick engine query.
  */
-public class ZoomFeature extends Feature {
+public class ZoomFeature extends Mod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final BoolProperty toggle = Property.bool(false);
@@ -28,7 +28,7 @@ public class ZoomFeature extends Feature {
 
     public ZoomFeature() {
         super(
-                new FeatureDetails("Zoom", "zoom")
+                new ModSpec("Zoom", "zoom")
                         .description("Zoom in for a closer view")
                         .tags("Camera", "Utility")
                         .version("v0.2.0"),

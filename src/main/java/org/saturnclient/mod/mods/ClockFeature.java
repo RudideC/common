@@ -1,4 +1,4 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -8,25 +8,25 @@ import org.saturnclient.ui.resources.Fonts;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.config.property.SelectProperty;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
-import org.saturnclient.feature.FeatureLayout;
-import org.saturnclient.feature.HudFeature;
+import org.saturnclient.mod.HudMod;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModLayout;
+import org.saturnclient.mod.ModSpec;
 
 /**
  * ClockFeature displays the real-world time as a HUD element.
  * No engine access is required; {@link LocalTime} is used directly.
  */
-public class ClockFeature extends Feature implements HudFeature {
+public class ClockFeature extends Mod implements HudMod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final SelectProperty format = Property.select(0, "24 hour", "12 hour");
     private static final BoolProperty showSeconds = Property.bool(false);
-    private static final FeatureLayout layout = new FeatureLayout(60, Fonts.getHeight());
+    private static final ModLayout layout = new ModLayout(60, Fonts.getHeight());
 
     public ClockFeature() {
         super(
-                new FeatureDetails("Clock", "clock")
+                new ModSpec("Clock", "clock")
                         .description("Displays the current real-world time")
                         .version("v0.2.0")
                         .tags("Utility"),
@@ -78,7 +78,7 @@ public class ClockFeature extends Feature implements HudFeature {
     // ---------------------------------------------------------------
 
     @Override
-    public FeatureLayout getDimensions() {
+    public ModLayout getDimensions() {
         return layout;
     }
 

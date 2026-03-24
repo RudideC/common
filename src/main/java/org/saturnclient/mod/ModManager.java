@@ -1,13 +1,13 @@
-package org.saturnclient.feature;
+package org.saturnclient.mod;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.saturnclient.feature.features.*;
+import org.saturnclient.mod.mods.*;
 
-public class FeatureManager {
-    public static List<Feature> ENABLED_MODS = new ArrayList<>();
-    public static Feature[] MODS = {
+public class ModManager {
+    public static List<Mod> ENABLED_MODS = new ArrayList<>();
+    public static Mod[] MODS = {
             new ArmorDisplayFeature(), new DayCounterFeature(), new KeystrokesFeature(), new StatusEffectsFeature(),
             new AutoSprintFeature(), new FpsFeature(), new NametagsFeature(), new TpsFeature(),
             new ClockFeature(), new FreelookFeature(), new NoFogFeature(), new ZoomFeature(),
@@ -21,7 +21,7 @@ public class FeatureManager {
 
     public static synchronized void updateEnabledModules() {
         ENABLED_MODS.clear();
-        for (Feature m : MODS) {
+        for (Mod m : MODS) {
             if (m.isEnabled()) {
                 ENABLED_MODS.add(m);
             }

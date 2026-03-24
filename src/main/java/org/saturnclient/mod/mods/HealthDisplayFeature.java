@@ -1,31 +1,31 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.config.property.SelectProperty;
+import org.saturnclient.mod.HudMod;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModLayout;
+import org.saturnclient.mod.ModSpec;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
-import org.saturnclient.feature.FeatureLayout;
-import org.saturnclient.feature.HudFeature;
 
 /**
  * HealthDisplayFeature renders the player's current health as a HUD
  * element, with configurable display modes (raw health vs. hearts) and
  * decimal precision.
  */
-public class HealthDisplayFeature extends Feature implements HudFeature {
+public class HealthDisplayFeature extends Mod implements HudMod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final SelectProperty displayMode = Property.select(0, "Health", "Hearts");
     private static final SelectProperty decimals = Property.select(0, "0", "1", "2");
-    private static final FeatureLayout layout = new FeatureLayout(40, 18);
+    private static final ModLayout layout = new ModLayout(40, 18);
 
     public HealthDisplayFeature() {
         super(
-                new FeatureDetails("Health Display", "health")
+                new ModSpec("Health Display", "health")
                         .description("Displays your current health")
                         .version("v0.2.0")
                         .tags("Utility"),
@@ -75,7 +75,7 @@ public class HealthDisplayFeature extends Feature implements HudFeature {
     // ---------------------------------------------------------------
 
     @Override
-    public FeatureLayout getDimensions() {
+    public ModLayout getDimensions() {
         return layout;
     }
 

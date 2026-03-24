@@ -1,34 +1,34 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.config.property.SelectProperty;
+import org.saturnclient.mod.HudMod;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModLayout;
+import org.saturnclient.mod.ModSpec;
 import org.saturnclient.common.module.PlayerModule;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
-import org.saturnclient.feature.FeatureLayout;
-import org.saturnclient.feature.HudFeature;
 
 /**
  * SpeedometerFeature displays the player's current movement speed as
  * a HUD element. Velocity data comes from {@link PlayerModule}.
  */
-public class SpeedometerFeature extends Feature implements HudFeature {
+public class SpeedometerFeature extends Mod implements HudMod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final SelectProperty axis = Property.select(1, "Absolute", "Horizontal", "Vertical");
     private static final SelectProperty unitText = Property.select(0, "None", "Blocks/s", "blocks/s", "b/s");
     private static final BoolProperty showLabel = Property.bool(true);
-    private static final FeatureLayout layout = new FeatureLayout(40, 18);
+    private static final ModLayout layout = new ModLayout(40, 18);
 
     private double cachedSpeed = 0.0;
 
     public SpeedometerFeature() {
         super(
-                new FeatureDetails("Speedometer", "speed")
+                new ModSpec("Speedometer", "speed")
                         .description("Displays your current movement speed")
                         .version("v0.2.0")
                         .tags("Utility"),
@@ -93,7 +93,7 @@ public class SpeedometerFeature extends Feature implements HudFeature {
     // ---------------------------------------------------------------
 
     @Override
-    public FeatureLayout getDimensions() {
+    public ModLayout getDimensions() {
         return layout;
     }
 

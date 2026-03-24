@@ -1,27 +1,27 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
+import org.saturnclient.mod.HudMod;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModLayout;
+import org.saturnclient.mod.ModSpec;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
-import org.saturnclient.feature.FeatureLayout;
-import org.saturnclient.feature.HudFeature;
 
 /**
  * PingFeature displays the current server round-trip time in
  * milliseconds as a HUD element.
  */
-public class PingFeature extends Feature implements HudFeature {
+public class PingFeature extends Mod implements HudMod {
 
     private static final BoolProperty enabled = Property.bool(false);
-    private static final FeatureLayout layout = new FeatureLayout(60, Fonts.getHeight());
+    private static final ModLayout layout = new ModLayout(60, Fonts.getHeight());
 
     public PingFeature() {
         super(
-                new FeatureDetails("Ping Display", "ping")
+                new ModSpec("Ping Display", "ping")
                         .description("Displays ping to the server")
                         .version("v0.2.0")
                         .tags("Utility"),
@@ -58,7 +58,7 @@ public class PingFeature extends Feature implements HudFeature {
     // ---------------------------------------------------------------
 
     @Override
-    public FeatureLayout getDimensions() {
+    public ModLayout getDimensions() {
         return layout;
     }
 

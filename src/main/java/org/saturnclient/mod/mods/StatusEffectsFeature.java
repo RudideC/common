@@ -1,4 +1,4 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import java.util.List;
 
@@ -7,11 +7,11 @@ import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.ref.game.EffectRef;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
+import org.saturnclient.mod.HudMod;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModLayout;
+import org.saturnclient.mod.ModSpec;
 import org.saturnclient.ui.RenderScope;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
-import org.saturnclient.feature.FeatureLayout;
-import org.saturnclient.feature.HudFeature;
 
 /**
  * StatusEffectsFeature displays the player's active potion effects as
@@ -22,14 +22,14 @@ import org.saturnclient.feature.HudFeature;
  * Until that is wired up, the existing {@link StatusEffectsInterface}
  * bridge is used, accessed via {@link ModuleProvider}.
  */
-public class StatusEffectsFeature extends Feature implements HudFeature {
+public class StatusEffectsFeature extends Mod implements HudMod {
 
     public static final BoolProperty enabled = Property.bool(false);
-    private static final FeatureLayout layout = new FeatureLayout(60, 0);
+    private static final ModLayout layout = new ModLayout(60, 0);
 
     public StatusEffectsFeature() {
         super(
-                new FeatureDetails("Status Effects", "effect")
+                new ModSpec("Status Effects", "effect")
                         .description("Displays active status effects")
                         .version("v0.2.0")
                         .tags("Utility"),
@@ -91,7 +91,7 @@ public class StatusEffectsFeature extends Feature implements HudFeature {
     // ---------------------------------------------------------------
 
     @Override
-    public FeatureLayout getDimensions() {
+    public ModLayout getDimensions() {
         return layout;
     }
 

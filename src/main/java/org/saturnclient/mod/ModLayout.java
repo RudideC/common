@@ -1,4 +1,4 @@
-package org.saturnclient.feature;
+package org.saturnclient.mod;
 
 import java.util.Map;
 
@@ -9,7 +9,7 @@ import org.saturnclient.config.property.FloatProperty;
 import org.saturnclient.config.property.IntProperty;
 import org.saturnclient.config.property.NamedProperty;
 
-public class FeatureLayout {
+public class ModLayout {
     public IntProperty x = Property.integer(0);
     public IntProperty y = Property.integer(0);
     public FloatProperty scale = Property.floatProp(1.0f);
@@ -33,22 +33,22 @@ public class FeatureLayout {
                 "Font", font)).named("In-Game Display");
     }
 
-    public FeatureLayout() {
+    public ModLayout() {
     }
 
-    public FeatureLayout(int width, int height) {
+    public ModLayout(int width, int height) {
         this.width = width;
         this.height = height;
     }
 
-    public FeatureLayout(int x, int y, int width, int height) {
+    public ModLayout(int x, int y, int width, int height) {
         this.x.value = x;
         this.y.value = y;
         this.width = width;
         this.height = height;
     }
 
-    public FeatureLayout(int x, int y, int width, int height, float scale) {
+    public ModLayout(int x, int y, int width, int height, float scale) {
         this.x.value = x;
         this.y.value = y;
         this.scale.value = scale;

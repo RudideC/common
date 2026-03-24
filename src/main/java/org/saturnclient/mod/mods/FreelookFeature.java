@@ -1,13 +1,13 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.KeybindingProperty;
 import org.saturnclient.config.property.Property;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModSpec;
 import org.saturnclient.common.module.RenderModule;
 import org.saturnclient.common.provider.GLFWProvider;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
 
 /**
  * FreelookFeature lets the player look around freely (in third-person)
@@ -16,7 +16,7 @@ import org.saturnclient.feature.FeatureDetails;
  * Camera perspective is controlled through {@link RenderModule} so
  * that the feature itself contains no direct Minecraft API calls.
  */
-public class FreelookFeature extends Feature {
+public class FreelookFeature extends Mod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final BoolProperty toggle = Property.bool(true);
@@ -28,7 +28,7 @@ public class FreelookFeature extends Feature {
 
     public FreelookFeature() {
         super(
-                new FeatureDetails("Freelook", "freelook")
+                new ModSpec("Freelook", "freelook")
                         .description("Look around freely without moving your character")
                         .tags("Movement", "Camera")
                         .version("v0.2.0"),

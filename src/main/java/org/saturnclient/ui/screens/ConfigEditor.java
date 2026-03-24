@@ -12,8 +12,8 @@ import org.saturnclient.config.property.KeybindingProperty;
 import org.saturnclient.config.property.NamespaceProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.config.property.SelectProperty;
-import org.saturnclient.feature.FeatureLayout;
-import org.saturnclient.feature.HudFeature;
+import org.saturnclient.mod.HudMod;
+import org.saturnclient.mod.ModLayout;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.SaturnScreen;
 import org.saturnclient.ui.components.HudModPreview;
@@ -30,7 +30,7 @@ import org.saturnclient.ui.resources.Fonts;
 
 public class ConfigEditor extends SaturnScreen {
     private ConfigManager config;
-    private HudFeature hudFeature;
+    private HudMod hudFeature;
     private HudModPreview preview;
 
     public ConfigEditor(ConfigManager config) {
@@ -39,7 +39,7 @@ public class ConfigEditor extends SaturnScreen {
         this.config = config;
     }
 
-    public ConfigEditor(ConfigManager config, HudFeature hudFeature) {
+    public ConfigEditor(ConfigManager config, HudMod hudFeature) {
         super("Config Editor");
 
         this.config = config;
@@ -160,7 +160,7 @@ public class ConfigEditor extends SaturnScreen {
     @Override
     public void render(RenderScope renderScope, int mouseX, int mouseY, float delta, long elapsed) {
         if (this.preview != null) {
-            FeatureLayout layout = hudFeature.getDimensions();
+            ModLayout layout = hudFeature.getDimensions();
             draw(this.preview
                     .dimensions(layout.width, (int) (layout.height * layout.scale.value * 2.0f))
                     .scale(1.0f) // Because the centering won't work properly

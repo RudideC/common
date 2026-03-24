@@ -1,28 +1,28 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import org.saturnclient.common.module.RenderModule;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
+import org.saturnclient.mod.HudMod;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModLayout;
+import org.saturnclient.mod.ModSpec;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
-import org.saturnclient.feature.FeatureLayout;
-import org.saturnclient.feature.HudFeature;
 
 /**
  * FpsFeature displays the current frames-per-second as a HUD element.
  * FPS is obtained from {@link RenderModule} rather than cached in the feature.
  */
-public class FpsFeature extends Feature implements HudFeature {
+public class FpsFeature extends Mod implements HudMod {
 
     private static final BoolProperty enabled = Property.bool(false);
-    private static final FeatureLayout layout = new FeatureLayout(60, Fonts.getHeight());
+    private static final ModLayout layout = new ModLayout(60, Fonts.getHeight());
 
     public FpsFeature() {
         super(
-                new FeatureDetails("FPS Display", "fps")
+                new ModSpec("FPS Display", "fps")
                         .description("Displays current FPS")
                         .version("v0.2.0")
                         .tags("Utility"),
@@ -59,7 +59,7 @@ public class FpsFeature extends Feature implements HudFeature {
     // ---------------------------------------------------------------
 
     @Override
-    public FeatureLayout getDimensions() {
+    public ModLayout getDimensions() {
         return layout;
     }
 

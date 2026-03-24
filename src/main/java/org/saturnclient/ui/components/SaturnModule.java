@@ -2,8 +2,8 @@ package org.saturnclient.ui.components;
 
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.Theme;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.HudFeature;
+import org.saturnclient.mod.HudMod;
+import org.saturnclient.mod.Mod;
 import org.saturnclient.ui.Element;
 import org.saturnclient.ui.ElementContext;
 import org.saturnclient.ui.RenderScope;
@@ -14,13 +14,13 @@ import org.saturnclient.ui.screens.ConfigEditor;
 
 public class SaturnModule extends Element {
 
-    private final Feature mod;
+    private final Mod mod;
 
     static int p = 10; // padding
     static int s = 14; // settings icon size
     static int expand = 5; // settings icon click area
 
-    public SaturnModule(Feature mod) {
+    public SaturnModule(Mod mod) {
         this.mod = mod;
         this.width = 160;
         this.height = 50;
@@ -142,7 +142,7 @@ public class SaturnModule extends Element {
                 1.0f);
 
         if (settingsHover) {
-            if (mod instanceof HudFeature h) {
+            if (mod instanceof HudMod h) {
                 Providers.saturn.getClient().setScreen(new ConfigEditor(mod.getConfig(), h));
             } else {
                 Providers.saturn.getClient().setScreen(new ConfigEditor(mod.getConfig()));

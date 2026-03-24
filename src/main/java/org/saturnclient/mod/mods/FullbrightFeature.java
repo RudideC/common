@@ -1,10 +1,10 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.IntProperty;
 import org.saturnclient.config.property.Property;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModSpec;
 
 /**
  * FullbrightFeature overrides the game's gamma/brightness to let the
@@ -16,14 +16,14 @@ import org.saturnclient.feature.FeatureDetails;
  * No ModuleProvider is needed — this feature has no per-tick engine
  * interaction; the mixin polls the static helpers directly.
  */
-public class FullbrightFeature extends Feature {
+public class FullbrightFeature extends Mod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final IntProperty brightness = Property.integer(100);
 
     public FullbrightFeature() {
         super(
-                new FeatureDetails("Fullbright", "fullbright")
+                new ModSpec("Fullbright", "fullbright")
                         .description("Allows you to see in the dark")
                         .tags("Camera")
                         .version("v0.2.0"),

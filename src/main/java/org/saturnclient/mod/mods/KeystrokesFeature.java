@@ -1,21 +1,21 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.ColorProperty;
 import org.saturnclient.config.property.Property;
+import org.saturnclient.mod.HudMod;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModLayout;
+import org.saturnclient.mod.ModSpec;
 import org.saturnclient.common.module.PlayerModule;
 import org.saturnclient.ui.RenderScope;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
-import org.saturnclient.feature.FeatureLayout;
-import org.saturnclient.feature.HudFeature;
 
 /**
  * KeystrokesFeature renders the WASD / mouse / space key states as an
  * on-screen overlay.
  */
-public class KeystrokesFeature extends Feature implements HudFeature {
+public class KeystrokesFeature extends Mod implements HudMod {
 
     // ---------------------------------------------------------------
     // Configuration
@@ -28,7 +28,7 @@ public class KeystrokesFeature extends Feature implements HudFeature {
     private static final ColorProperty clickBg = Property.color(0xFFCCCCCC);
     private static final ColorProperty clickFg = Property.color(0xFFFFFFFF);
 
-    private static final FeatureLayout layout = new FeatureLayout(78, 54);
+    private static final ModLayout layout = new ModLayout(78, 54);
 
     // ---------------------------------------------------------------
     // Layout constants
@@ -48,7 +48,7 @@ public class KeystrokesFeature extends Feature implements HudFeature {
 
     public KeystrokesFeature() {
         super(
-                new FeatureDetails("Keystrokes", "keystrokes")
+                new ModSpec("Keystrokes", "keystrokes")
                         .description("Displays movement keystrokes")
                         .version("v0.2.0")
                         .tags("Utility"),
@@ -89,7 +89,7 @@ public class KeystrokesFeature extends Feature implements HudFeature {
     }
 
     @Override
-    public FeatureLayout getDimensions() {
+    public ModLayout getDimensions() {
         return layout;
     }
 

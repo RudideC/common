@@ -1,9 +1,9 @@
-package org.saturnclient.feature;
+package org.saturnclient.mod;
 
 import org.saturnclient.ui.RenderScope;
 
-public interface HudFeature {
-    public FeatureLayout getDimensions();
+public interface HudMod {
+    public ModLayout getDimensions();
 
     public void renderDummy(RenderScope scope);
 

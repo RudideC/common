@@ -1,38 +1,38 @@
-package org.saturnclient.feature;
+package org.saturnclient.mod;
 
-public class FeatureDetails {
+public class ModSpec {
     public String name;
     public String namespace;
     public String description;
     public String version;
     public String[] tags = {};
 
-    public FeatureDetails(String name, String namespace) {
+    public ModSpec(String name, String namespace) {
         this.name = name;
         this.namespace = namespace;
     }
 
-    public FeatureDetails name(String name) {
+    public ModSpec name(String name) {
         this.name = name;
         return this;
     }
 
-    public FeatureDetails namespace(String namespace) {
+    public ModSpec namespace(String namespace) {
         this.namespace = namespace;
         return this;
     }
 
-    public FeatureDetails description(String description) {
+    public ModSpec description(String description) {
         this.description = description;
         return this;
     }
 
-    public FeatureDetails version(String version) {
+    public ModSpec version(String version) {
         this.version = version;
         return this;
     }
 
-    public FeatureDetails tags(String... tags) {
+    public ModSpec tags(String... tags) {
         this.tags = tags;
         return this;
     }

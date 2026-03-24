@@ -1,24 +1,24 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModSpec;
 import org.saturnclient.common.module.NetworkModule;
 import org.saturnclient.common.module.PlayerModule;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
 
 /**
  * AutoSprintFeature automatically enables sprinting whenever the
  * player moves forward and no sprint-blocking condition is active.
  */
-public class AutoSprintFeature extends Feature {
+public class AutoSprintFeature extends Mod {
 
     private static final BoolProperty enabled = Property.bool(false);
 
     public AutoSprintFeature() {
         super(
-                new FeatureDetails("Auto Sprint", "sprint")
+                new ModSpec("Auto Sprint", "sprint")
                         .description("Makes the player always sprint")
                         .tags("Movement")
                         .version("v0.2.0"),

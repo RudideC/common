@@ -1,14 +1,14 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.module.PlayerModule;
 import org.saturnclient.common.ref.game.ItemStackRef;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
-import org.saturnclient.feature.FeatureLayout;
-import org.saturnclient.feature.HudFeature;
+import org.saturnclient.mod.HudMod;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModLayout;
+import org.saturnclient.mod.ModSpec;
 import org.saturnclient.ui.RenderScope;
 
 /**
@@ -17,15 +17,15 @@ import org.saturnclient.ui.RenderScope;
  *
  * Engine access is provided exclusively through {@link ModuleProvider}.
  */
-public class ArmorDisplayFeature extends Feature implements HudFeature {
+public class ArmorDisplayFeature extends Mod implements HudMod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final BoolProperty useMainHand = Property.bool(true);
-    private static final FeatureLayout layout = new FeatureLayout(40, 75);
+    private static final ModLayout layout = new ModLayout(40, 75);
 
     public ArmorDisplayFeature() {
         super(
-                new FeatureDetails("Armor Display", "armor")
+                new ModSpec("Armor Display", "armor")
                         .description("Displays armor durability")
                         .version("v0.2.0")
                         .tags("Utility"),
@@ -107,7 +107,7 @@ public class ArmorDisplayFeature extends Feature implements HudFeature {
     // ---------------------------------------------------------------
 
     @Override
-    public FeatureLayout getDimensions() {
+    public ModLayout getDimensions() {
         return layout;
     }
 

@@ -1,4 +1,4 @@
-package org.saturnclient.feature;
+package org.saturnclient.mod;
 
 import org.saturnclient.common.ref.asset.IdentifierRef;
 import org.saturnclient.config.ConfigManager;
@@ -6,11 +6,11 @@ import org.saturnclient.config.property.NamedProperty;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Textures;
 
-public abstract class Feature {
-    private final FeatureDetails details;
+public abstract class Mod {
+    private final ModSpec details;
     private final ConfigManager configManager;
 
-    public Feature(FeatureDetails details, NamedProperty... props) {
+    public Mod(ModSpec details, NamedProperty... props) {
         this.details = details;
         configManager = new ConfigManager(details.name);
         for (NamedProperty prop : props) {
@@ -28,7 +28,7 @@ public abstract class Feature {
 
     public final void setEnabled(boolean e) {
         onEnabled(e);
-        FeatureManager.updateEnabledModules();
+        ModManager.updateEnabledModules();
     }
 
     public abstract void onEnabled(boolean e);

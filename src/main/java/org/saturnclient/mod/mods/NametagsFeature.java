@@ -1,11 +1,11 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import org.saturnclient.common.module.EntityModule;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.config.property.SelectProperty;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModSpec;
 
 /**
  * NametagsFeature modifies the nametags displayed above entities.
@@ -18,7 +18,7 @@ import org.saturnclient.feature.FeatureDetails;
  * No ModuleProvider is required here because the mixin passes the
  * already-resolved {@link EntityModule.EntityState} directly.
  */
-public class NametagsFeature extends Feature {
+public class NametagsFeature extends Mod {
 
     // ---------------------------------------------------------------
     // Configuration
@@ -53,7 +53,7 @@ public class NametagsFeature extends Feature {
 
     public NametagsFeature() {
         super(
-                new FeatureDetails("Nametags", "nametags")
+                new ModSpec("Nametags", "nametags")
                         .description("Allows you to modify entity nametags")
                         .tags("Camera", "Utility")
                         .version("v0.2.0"),

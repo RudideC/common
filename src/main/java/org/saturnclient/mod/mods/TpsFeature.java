@@ -1,13 +1,13 @@
-package org.saturnclient.feature.features;
+package org.saturnclient.mod.mods;
 
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
-import org.saturnclient.feature.Feature;
-import org.saturnclient.feature.FeatureDetails;
-import org.saturnclient.feature.FeatureLayout;
-import org.saturnclient.feature.HudFeature;
+import org.saturnclient.mod.HudMod;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModLayout;
+import org.saturnclient.mod.ModSpec;
 
 /**
  * TpsFeature estimates the server's ticks-per-second by measuring the
@@ -18,10 +18,10 @@ import org.saturnclient.feature.HudFeature;
  * arrives. No ModuleProvider is required because there is no
  * per-frame polling of the engine.
  */
-public class TpsFeature extends Feature implements HudFeature {
+public class TpsFeature extends Mod implements HudMod {
 
     private static final BoolProperty enabled = Property.bool(false);
-    private static final FeatureLayout layout = new FeatureLayout(60, Fonts.getHeight());
+    private static final ModLayout layout = new ModLayout(60, Fonts.getHeight());
 
     // ---------------------------------------------------------------
     // TPS sampling state (static — shared across all instances)
@@ -46,7 +46,7 @@ public class TpsFeature extends Feature implements HudFeature {
 
     public TpsFeature() {
         super(
-                new FeatureDetails("TPS Display", "tps")
+                new ModSpec("TPS Display", "tps")
                         .description("Displays the server's ticks per second")
                         .version("v0.2.0")
                         .tags("Utility"),
@@ -126,7 +126,7 @@ public class TpsFeature extends Feature implements HudFeature {
     // ---------------------------------------------------------------
 
     @Override
-    public FeatureLayout getDimensions() {
+    public ModLayout getDimensions() {
         return layout;
     }
 

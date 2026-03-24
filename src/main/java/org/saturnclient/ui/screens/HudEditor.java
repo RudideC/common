@@ -2,10 +2,10 @@ package org.saturnclient.ui.screens;
 
 import org.saturnclient.common.ref.render.MatrixStackRef;
 import org.saturnclient.config.ConfigManager;
-import org.saturnclient.feature.HudFeature;
-import org.saturnclient.feature.FeatureLayout;
-import org.saturnclient.feature.FeatureManager;
-import org.saturnclient.feature.Feature;
+import org.saturnclient.mod.HudMod;
+import org.saturnclient.mod.Mod;
+import org.saturnclient.mod.ModLayout;
+import org.saturnclient.mod.ModManager;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.SaturnScreen;
 
@@ -13,17 +13,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HudEditor extends SaturnScreen {
-    private final List<HudFeature> hudMods = new ArrayList<>();
-    private HudFeature draggingMod = null;
+    private final List<HudMod> hudMods = new ArrayList<>();
+    private HudMod draggingMod = null;
     private boolean resizing = false;
     private int offsetX, offsetY;
     private static final int RESIZE_MARGIN = 3;
 
     public HudEditor() {
         super("HUD Editor");
-        for (Feature m : FeatureManager.ENABLED_MODS) {
-            if (m.isEnabled() && m instanceof HudFeature) {
-                hudMods.add((HudFeature) m);
+        for (Mod m : ModManager.ENABLED_MODS) {
+            if (m.isEnabled() && m instanceof HudMod) {
+                hudMods.add((HudMod) m);
             }
         }
     }
@@ -32,8 +32,8 @@ public class HudEditor extends SaturnScreen {
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (button == 0) {
             for (int m = hudMods.size() - 1; m >= 0; m--) {
-                HudFeature mod = hudMods.get(m);
-                FeatureLayout dim = mod.getDimensions();
+                HudMod mod = hudMods.get(m);
+                ModLayout dim = mod.getDimensions();
 
                 // Check if clicking the corner for resizing
                 if (isCorner(mouseX, mouseY, dim)) {
@@ -69,7 +69,7 @@ public class HudEditor extends SaturnScreen {
     @Override
     public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
         if (draggingMod != null) {
-            FeatureLayout dim = draggingMod.getDimensions();
+            ModLayout dim = draggingMod.getDimensions();
 
             if (resizing) {
                 // Scale based on cursor movement
@@ -90,8 +90,8 @@ public class HudEditor extends SaturnScreen {
 
     @Override
     public void render(RenderScope renderScope, int mouseX, int mouseY, float delta, long elapsed) {
-        for (HudFeature mod : hudMods) {
-            FeatureLayout dim = mod.getDimensions();
+        for (HudMod mod : hudMods) {
+            ModLayout dim = mod.getDimensions();
             MatrixStackRef matrices = renderScope.getMatrixStack();
             matrices.push();
 
@@ -113,12 +113,12 @@ public class HudEditor extends SaturnScreen {
         }
     }
 
-    private boolean isInside(double mouseX, double mouseY, FeatureLayout dim) {
+    private boolean isInside(double mouseX, double mouseY, ModLayout dim) {
         return mouseX >= dim.x.value && mouseX <= dim.x.value + (dim.width * dim.scale.value) &&
                 mouseY >= dim.y.value && mouseY <= dim.y.value + (dim.height * dim.scale.value);
     }
 
-    private boolean isCorner(double mouseX, double mouseY, FeatureLayout dim) {
+    private boolean isCorner(double mouseX, double mouseY, ModLayout dim) {
         float rightX = dim.x.value + dim.width * dim.scale.value;
         float bottomY = dim.y.value + dim.height * dim.scale.value;
 
