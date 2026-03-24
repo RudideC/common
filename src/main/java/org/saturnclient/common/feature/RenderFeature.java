@@ -1,17 +1,18 @@
-package org.saturnclient.common.module;
+package org.saturnclient.common.feature;
 
 /**
  * RenderModule provides access to render-time information that does
  * not belong to the player or world, such as the current window
  * dimensions, camera perspective, and the frame's FPS counter.
  */
-public interface RenderModule {
+public interface RenderFeature {
 
     // ---------------------------------------------------------------
     // Window
     // ---------------------------------------------------------------
 
     int getScaledWindowWidth();
+
     int getScaledWindowHeight();
 
     // ---------------------------------------------------------------
@@ -27,5 +28,6 @@ public interface RenderModule {
     boolean isFirstPerson();
 
     void setFirstPerson();
+
     void setThirdPersonBack();
 }

@@ -1,6 +1,6 @@
 package org.saturnclient.mod.mods;
 
-import org.saturnclient.common.module.WorldModule;
+import org.saturnclient.common.feature.WorldFeature;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
@@ -13,7 +13,7 @@ import org.saturnclient.ui.resources.Fonts;
 
 /**
  * DayCounterMod shows how many in-game days have elapsed.
- * Day count is derived from the world age via {@link WorldModule}.
+ * Day count is derived from the world age via {@link WorldFeature}.
  */
 public class DayCounterMod extends Mod implements HudMod {
 

@@ -1,11 +1,11 @@
-package org.saturnclient.common.module;
+package org.saturnclient.common.feature;
 
 /**
  * NetworkModule provides access to the current server connection.
  *
  * Methods return safe defaults (false / -1) when not connected.
  */
-public interface NetworkModule {
+public interface NetworkFeature {
 
     /** Returns true when a server connection is active. */
     boolean hasNetwork();

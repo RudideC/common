@@ -1,5 +1,6 @@
 package org.saturnclient.mod.mods;
 
+import org.saturnclient.common.feature.PlayerFeature;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.ColorProperty;
@@ -8,7 +9,6 @@ import org.saturnclient.mod.HudMod;
 import org.saturnclient.mod.Mod;
 import org.saturnclient.mod.ModLayout;
 import org.saturnclient.mod.ModSpec;
-import org.saturnclient.common.module.PlayerModule;
 import org.saturnclient.ui.RenderScope;
 
 /**
@@ -67,7 +67,7 @@ public class KeystrokesMod extends Mod implements HudMod {
 
     @Override
     public void tick() {
-        PlayerModule player = Providers.module.player();
+        PlayerFeature player = Providers.module.player();
         w = player.isForwardPressed();
         a = player.isLeftPressed();
         s = player.isBackPressed();

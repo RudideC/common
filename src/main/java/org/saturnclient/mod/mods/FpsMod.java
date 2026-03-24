@@ -1,6 +1,6 @@
 package org.saturnclient.mod.mods;
 
-import org.saturnclient.common.module.RenderModule;
+import org.saturnclient.common.feature.RenderFeature;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
@@ -13,7 +13,7 @@ import org.saturnclient.ui.resources.Fonts;
 
 /**
  * FpsMod displays the current frames-per-second as a HUD element.
- * FPS is obtained from {@link RenderModule} rather than cached in the feature.
+ * FPS is obtained from {@link RenderFeature} rather than cached in the feature.
  */
 public class FpsMod extends Mod implements HudMod {
 

@@ -1,6 +1,6 @@
 package org.saturnclient.mod.mods;
 
-import org.saturnclient.common.module.EntityModule;
+import org.saturnclient.common.feature.EntityFeature;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.config.property.SelectProperty;
@@ -13,10 +13,10 @@ import org.saturnclient.mod.ModSpec;
  * Actual rendering is injected via a mixin; this class owns the
  * configuration and exposes two static query methods the mixin uses:
  * {@link #shouldReplaceName()} and
- * {@link #getNametagString(EntityModule.EntityState)}.
+ * {@link #getNametagString(EntityFeature.EntityState)}.
  *
  * No ModuleProvider is required here because the mixin passes the
- * already-resolved {@link EntityModule.EntityState} directly.
+ * already-resolved {@link EntityFeature.EntityState} directly.
  */
 public class NametagsMod extends Mod {
 
@@ -83,7 +83,7 @@ public class NametagsMod extends Mod {
      * Builds the replacement nametag string for the given entity state,
      * or {@code null} if this entity should not have its tag replaced.
      */
-    public static String getNametagString(EntityModule.EntityState state) {
+    public static String getNametagString(EntityFeature.EntityState state) {
         if (state.getCustomName() == null)
             return null;
         if (!healthDisplay.value)
@@ -92,14 +92,14 @@ public class NametagsMod extends Mod {
         float health = state.getHealth();
         float maxHealth = state.getMaxHealth();
 
-        EntityModule.EntityType type = state.getEntityType();
-        if (type == EntityModule.EntityType.PASSIVE && !passive.value)
+        EntityFeature.EntityType type = state.getEntityType();
+        if (type == EntityFeature.EntityType.PASSIVE && !passive.value)
             return null;
-        if (type == EntityModule.EntityType.HOSTILE && !hostile.value)
+        if (type == EntityFeature.EntityType.HOSTILE && !hostile.value)
             return null;
-        if (type == EntityModule.EntityType.PLAYER && !players.value)
+        if (type == EntityFeature.EntityType.PLAYER && !players.value)
             return null;
-        if (type == EntityModule.EntityType.OTHER)
+        if (type == EntityFeature.EntityType.OTHER)
             return null;
 
         if (health < 0f || maxHealth < 0f || health > maxHealth)

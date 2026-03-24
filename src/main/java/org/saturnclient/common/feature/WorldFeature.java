@@ -1,4 +1,4 @@
-package org.saturnclient.common.module;
+package org.saturnclient.common.feature;
 
 /**
  * WorldModule provides access to world-level information that is not
@@ -6,7 +6,7 @@ package org.saturnclient.common.module;
  *
  * All methods return safe defaults when no world is loaded.
  */
-public interface WorldModule {
+public interface WorldFeature {
 
     /** Returns true when a world is currently loaded. */
     boolean hasWorld();

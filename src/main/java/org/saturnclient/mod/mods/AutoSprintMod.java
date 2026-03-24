@@ -1,12 +1,12 @@
 package org.saturnclient.mod.mods;
 
+import org.saturnclient.common.feature.NetworkFeature;
+import org.saturnclient.common.feature.PlayerFeature;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.mod.Mod;
 import org.saturnclient.mod.ModSpec;
-import org.saturnclient.common.module.NetworkModule;
-import org.saturnclient.common.module.PlayerModule;
 
 /**
  * AutoSprintMod automatically enables sprinting whenever the
@@ -31,8 +31,8 @@ public class AutoSprintMod extends Mod {
 
     @Override
     public void tick() {
-        PlayerModule player = Providers.module.player();
-        NetworkModule network = Providers.module.network();
+        PlayerFeature player = Providers.module.player();
+        NetworkFeature network = Providers.module.network();
 
         if (!player.hasPlayer() || !network.hasNetwork()) {
             return;

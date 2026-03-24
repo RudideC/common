@@ -1,4 +1,4 @@
-package org.saturnclient.common.module;
+package org.saturnclient.common.feature;
 
 /**
  * EntityModule provides queries about entities in the current world.
@@ -6,7 +6,7 @@ package org.saturnclient.common.module;
  * Designed to be thin so that feature logic is not polluted with
  * engine-specific entity types.
  */
-public interface EntityModule {
+public interface EntityFeature {
 
     // ---------------------------------------------------------------
     // Crosshair / targeting
@@ -21,7 +21,7 @@ public interface EntityModule {
 
     /**
      * Represents the minimal observable state of an entity needed for
-     * nametag rendering.  Implementations are created per-entity each
+     * nametag rendering. Implementations are created per-entity each
      * frame; they are intentionally not cached.
      */
     public static interface EntityState {
@@ -30,7 +30,9 @@ public interface EntityModule {
         String getCustomName();
 
         float getHealth();
+
         float getMaxHealth();
+
         EntityType getEntityType();
     }
 

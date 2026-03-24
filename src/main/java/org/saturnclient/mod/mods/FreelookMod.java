@@ -6,14 +6,14 @@ import org.saturnclient.config.property.KeybindingProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.mod.Mod;
 import org.saturnclient.mod.ModSpec;
-import org.saturnclient.common.module.RenderModule;
+import org.saturnclient.common.feature.RenderFeature;
 import org.saturnclient.common.provider.GLFWProvider;
 
 /**
  * FreelookMod lets the player look around freely (in third-person)
  * without changing the direction their character walks.
  *
- * Camera perspective is controlled through {@link RenderModule} so
+ * Camera perspective is controlled through {@link RenderFeature} so
  * that the feature itself contains no direct Minecraft API calls.
  */
 public class FreelookMod extends Mod {
@@ -75,7 +75,7 @@ public class FreelookMod extends Mod {
     // ---------------------------------------------------------------
 
     private void startFreelook() {
-        RenderModule render = Providers.module.render();
+        RenderFeature render = Providers.module.render();
         wasFirstPerson = render.isFirstPerson();
         render.setThirdPersonBack();
         isFreeLooking = true;

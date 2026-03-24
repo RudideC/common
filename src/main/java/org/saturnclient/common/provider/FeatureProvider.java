@@ -1,10 +1,10 @@
 package org.saturnclient.common.provider;
 
-import org.saturnclient.common.module.EntityModule;
-import org.saturnclient.common.module.NetworkModule;
-import org.saturnclient.common.module.PlayerModule;
-import org.saturnclient.common.module.RenderModule;
-import org.saturnclient.common.module.WorldModule;
+import org.saturnclient.common.feature.EntityFeature;
+import org.saturnclient.common.feature.NetworkFeature;
+import org.saturnclient.common.feature.PlayerFeature;
+import org.saturnclient.common.feature.RenderFeature;
+import org.saturnclient.common.feature.WorldFeature;
 
 /**
  * ModuleProvider is the single entry point for features to access
@@ -16,20 +16,20 @@ import org.saturnclient.common.module.WorldModule;
  * because the provider may swap implementations at runtime (e.g. on
  * world change).
  */
-public interface ModuleProvider {
+public interface FeatureProvider {
 
     /** Access to the local player and movement state. */
-    PlayerModule player();
+    PlayerFeature player();
 
     /** Access to the game world (time, TPS packets, etc.). */
-    WorldModule world();
+    WorldFeature world();
 
     /** Access to entity / nametag queries. */
-    EntityModule entity();
+    EntityFeature entity();
 
     /** Access to rendering utilities (window size, textures, etc.). */
-    RenderModule render();
+    RenderFeature render();
 
     /** Access to the network / server connection. */
-    NetworkModule network();
+    NetworkFeature network();
 }

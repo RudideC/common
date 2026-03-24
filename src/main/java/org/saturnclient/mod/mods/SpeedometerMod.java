@@ -1,5 +1,6 @@
 package org.saturnclient.mod.mods;
 
+import org.saturnclient.common.feature.PlayerFeature;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
@@ -8,13 +9,12 @@ import org.saturnclient.mod.HudMod;
 import org.saturnclient.mod.Mod;
 import org.saturnclient.mod.ModLayout;
 import org.saturnclient.mod.ModSpec;
-import org.saturnclient.common.module.PlayerModule;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
 
 /**
  * SpeedometerMod displays the player's current movement speed as
- * a HUD element. Velocity data comes from {@link PlayerModule}.
+ * a HUD element. Velocity data comes from {@link PlayerFeature}.
  */
 public class SpeedometerMod extends Mod implements HudMod {
 
@@ -45,8 +45,8 @@ public class SpeedometerMod extends Mod implements HudMod {
 
     @Override
     public void renderHud(RenderScope scope) {
-        PlayerModule player = Providers.module.player();
-        PlayerModule.Velocity v = player.getVelocity();
+        PlayerFeature player = Providers.module.player();
+        PlayerFeature.Velocity v = player.getVelocity();
         boolean onGround = player.isOnGround();
 
         double effectiveY = onGround ? 0.0 : v.y;

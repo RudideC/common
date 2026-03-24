@@ -1,7 +1,7 @@
 package org.saturnclient.mod.mods;
 
+import org.saturnclient.common.feature.PlayerFeature;
 import org.saturnclient.common.provider.Providers;
-import org.saturnclient.common.module.PlayerModule;
 import org.saturnclient.common.ref.game.ItemStackRef;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
@@ -15,7 +15,7 @@ import org.saturnclient.ui.RenderScope;
  * ArmorDisplayMod renders the durability of the player's equipped
  * armor pieces (and optionally the main-hand item) as a HUD overlay.
  *
- * Engine access is provided exclusively through {@link ModuleProvider}.
+ * Engine access is provided exclusively through {@link FeatureProvider}.
  */
 public class ArmorDisplayMod extends Mod implements HudMod {
 
@@ -40,7 +40,7 @@ public class ArmorDisplayMod extends Mod implements HudMod {
 
     @Override
     public void renderHud(RenderScope scope) {
-        PlayerModule player = Providers.module.player();
+        PlayerFeature player = Providers.module.player();
         renderArmor(scope,
                 player.getMainHand(),
                 player.getHelmet(),
@@ -51,7 +51,7 @@ public class ArmorDisplayMod extends Mod implements HudMod {
 
     @Override
     public void renderDummy(RenderScope scope) {
-        PlayerModule player = Providers.module.player();
+        PlayerFeature player = Providers.module.player();
         renderArmor(scope,
                 player.getDummyMainHand(),
                 player.getDummyHelmet(),

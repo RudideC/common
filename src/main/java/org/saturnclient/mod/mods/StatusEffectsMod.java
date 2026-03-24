@@ -2,7 +2,7 @@ package org.saturnclient.mod.mods;
 
 import java.util.List;
 
-import org.saturnclient.common.provider.ModuleProvider;
+import org.saturnclient.common.provider.FeatureProvider;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.ref.game.EffectRef;
 import org.saturnclient.config.property.BoolProperty;
@@ -20,7 +20,7 @@ import org.saturnclient.ui.RenderScope;
  * The effect list is supplied by the platform through an interface
  * returned by a future {@code PlayerModule#getActiveEffects()} call.
  * Until that is wired up, the existing {@link StatusEffectsInterface}
- * bridge is used, accessed via {@link ModuleProvider}.
+ * bridge is used, accessed via {@link FeatureProvider}.
  */
 public class StatusEffectsMod extends Mod implements HudMod {
 

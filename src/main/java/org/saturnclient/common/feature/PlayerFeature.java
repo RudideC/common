@@ -1,4 +1,4 @@
-package org.saturnclient.common.module;
+package org.saturnclient.common.feature;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.saturnclient.common.ref.game.ItemStackRef;
  * All methods return safe defaults (false / 0 / empty) when no player
  * is present so that features do not need to null-check everywhere.
  */
-public interface PlayerModule {
+public interface PlayerFeature {
 
     // ---------------------------------------------------------------
     // Presence

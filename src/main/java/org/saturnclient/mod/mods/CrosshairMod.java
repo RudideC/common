@@ -1,11 +1,11 @@
 package org.saturnclient.mod.mods;
 
+import org.saturnclient.common.feature.RenderFeature;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
 import org.saturnclient.mod.Mod;
 import org.saturnclient.mod.ModSpec;
-import org.saturnclient.common.module.RenderModule;
 import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Textures;
 
@@ -38,7 +38,7 @@ public class CrosshairMod extends Mod {
             return;
         }
 
-        RenderModule render = Providers.module.render();
+        RenderFeature render = Providers.module.render();
         int x = (render.getScaledWindowWidth() - CROSSHAIR_SIZE) / 2;
         int y = (render.getScaledWindowHeight() - CROSSHAIR_SIZE) / 2;
 
