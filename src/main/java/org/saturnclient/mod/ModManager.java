@@ -8,11 +8,11 @@ import org.saturnclient.mod.mods.*;
 public class ModManager {
     public static List<Mod> ENABLED_MODS = new ArrayList<>();
     public static Mod[] MODS = {
-            new ArmorDisplayFeature(), new DayCounterFeature(), new KeystrokesFeature(), new StatusEffectsFeature(),
-            new AutoSprintFeature(), new FpsFeature(), new NametagsFeature(), new TpsFeature(),
-            new ClockFeature(), new FreelookFeature(), new NoFogFeature(), new ZoomFeature(),
-            new CoordinatesFeature(), new FullbrightFeature(), new PingFeature(),
-            new CrosshairFeature(), new HealthDisplayFeature(), new SpeedometerFeature(),
+            new ArmorDisplayMod(), new DayCounterMod(), new KeystrokesMod(), new StatusEffectsMod(),
+            new AutoSprintMod(), new FpsMod(), new NametagsMod(), new TpsMod(),
+            new ClockMod(), new FreelookMod(), new NoFogMod(), new ZoomMod(),
+            new CoordinatesMod(), new FullbrightMod(), new PingMod(),
+            new CrosshairMod(), new HealthDisplayMod(), new SpeedometerMod(),
     };
 
     public static void init() {

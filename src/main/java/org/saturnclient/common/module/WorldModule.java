@@ -13,7 +13,7 @@ public interface WorldModule {
 
     /**
      * Returns the total world age in ticks.
-     * Used by {@link org.saturnclient.feature.TpsFeature} to compute TPS.
+     * Used by {@link org.saturnclient.feature.TpsMod} to compute TPS.
      */
     long getWorldAge();
 

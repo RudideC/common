@@ -1,6 +1,6 @@
 package org.saturnclient.mod.mods;
 
-import org.saturnclient.common.module.WorldModule;
+import org.saturnclient.common.module.RenderModule;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
@@ -12,18 +12,18 @@ import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
 
 /**
- * DayCounterFeature shows how many in-game days have elapsed.
- * Day count is derived from the world age via {@link WorldModule}.
+ * FpsMod displays the current frames-per-second as a HUD element.
+ * FPS is obtained from {@link RenderModule} rather than cached in the feature.
  */
-public class DayCounterFeature extends Mod implements HudMod {
+public class FpsMod extends Mod implements HudMod {
 
     private static final BoolProperty enabled = Property.bool(false);
-    private static final ModLayout layout = new ModLayout(40, 18);
+    private static final ModLayout layout = new ModLayout(60, Fonts.getHeight());
 
-    public DayCounterFeature() {
+    public FpsMod() {
         super(
-                new ModSpec("Day Counter", "day")
-                        .description("Displays the number of in-game days elapsed")
+                new ModSpec("FPS Display", "fps")
+                        .description("Displays current FPS")
                         .version("v0.2.0")
                         .tags("Utility"),
                 enabled.named("Enabled"),
@@ -31,33 +31,31 @@ public class DayCounterFeature extends Mod implements HudMod {
     }
 
     // ---------------------------------------------------------------
-    // HudFeature
+    // HudMod
     // ---------------------------------------------------------------
 
     @Override
     public void renderHud(RenderScope scope) {
-        renderDay(Providers.module.world().getDay(), scope);
+        renderFps(Providers.module.render().getFps(), scope);
     }
 
     @Override
     public void renderDummy(RenderScope scope) {
-        renderDay(271L, scope);
+        renderFps(369, scope);
     }
 
     // ---------------------------------------------------------------
     // Rendering
     // ---------------------------------------------------------------
 
-    private void renderDay(long day, RenderScope scope) {
-        String text = "Day: " + day;
-
+    private void renderFps(int fps, RenderScope scope) {
+        String text = fps + " FPS";
         scope.drawText(text, 0, 0, layout.font.value, layout.fgColor.value);
         layout.width = Fonts.getWidth(text, layout.font.value);
-        layout.height = 18 * text.split("\n").length;
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override

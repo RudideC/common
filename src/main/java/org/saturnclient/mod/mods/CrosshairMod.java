@@ -10,16 +10,16 @@ import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Textures;
 
 /**
- * CrosshairFeature renders an alternative crosshair texture when the
+ * CrosshairMod renders an alternative crosshair texture when the
  * player is aiming at a living entity.
  */
-public class CrosshairFeature extends Mod {
+public class CrosshairMod extends Mod {
 
     public static final BoolProperty enabled = Property.bool(false);
 
     private static final int CROSSHAIR_SIZE = 15;
 
-    public CrosshairFeature() {
+    public CrosshairMod() {
         super(
                 new ModSpec("Crosshair", "crosshair")
                         .description("Changes the crosshair when aiming at an entity")
@@ -29,7 +29,7 @@ public class CrosshairFeature extends Mod {
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override

@@ -10,7 +10,7 @@ import org.saturnclient.mod.ModLayout;
 import org.saturnclient.mod.ModSpec;
 
 /**
- * TpsFeature estimates the server's ticks-per-second by measuring the
+ * TpsMod estimates the server's ticks-per-second by measuring the
  * elapsed real time between consecutive world-time packets.
  *
  * TPS calculation is event-driven: the networking layer (or mixin)
@@ -18,7 +18,7 @@ import org.saturnclient.mod.ModSpec;
  * arrives. No ModuleProvider is required because there is no
  * per-frame polling of the engine.
  */
-public class TpsFeature extends Mod implements HudMod {
+public class TpsMod extends Mod implements HudMod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final ModLayout layout = new ModLayout(60, Fonts.getHeight());
@@ -44,7 +44,7 @@ public class TpsFeature extends Mod implements HudMod {
     // Constructor
     // ---------------------------------------------------------------
 
-    public TpsFeature() {
+    public TpsMod() {
         super(
                 new ModSpec("TPS Display", "tps")
                         .description("Displays the server's ticks per second")
@@ -98,7 +98,7 @@ public class TpsFeature extends Mod implements HudMod {
     }
 
     // ---------------------------------------------------------------
-    // HudFeature
+    // HudMod
     // ---------------------------------------------------------------
 
     @Override
@@ -122,7 +122,7 @@ public class TpsFeature extends Mod implements HudMod {
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override

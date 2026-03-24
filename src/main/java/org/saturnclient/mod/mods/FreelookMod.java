@@ -10,13 +10,13 @@ import org.saturnclient.common.module.RenderModule;
 import org.saturnclient.common.provider.GLFWProvider;
 
 /**
- * FreelookFeature lets the player look around freely (in third-person)
+ * FreelookMod lets the player look around freely (in third-person)
  * without changing the direction their character walks.
  *
  * Camera perspective is controlled through {@link RenderModule} so
  * that the feature itself contains no direct Minecraft API calls.
  */
-public class FreelookFeature extends Mod {
+public class FreelookMod extends Mod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final BoolProperty toggle = Property.bool(true);
@@ -26,7 +26,7 @@ public class FreelookFeature extends Mod {
     public static boolean isFreeLooking = false;
     private static boolean wasFirstPerson = false;
 
-    public FreelookFeature() {
+    public FreelookMod() {
         super(
                 new ModSpec("Freelook", "freelook")
                         .description("Look around freely without moving your character")
@@ -38,7 +38,7 @@ public class FreelookFeature extends Mod {
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override

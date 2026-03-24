@@ -13,10 +13,10 @@ import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
 
 /**
- * SpeedometerFeature displays the player's current movement speed as
+ * SpeedometerMod displays the player's current movement speed as
  * a HUD element. Velocity data comes from {@link PlayerModule}.
  */
-public class SpeedometerFeature extends Mod implements HudMod {
+public class SpeedometerMod extends Mod implements HudMod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final SelectProperty axis = Property.select(1, "Absolute", "Horizontal", "Vertical");
@@ -26,7 +26,7 @@ public class SpeedometerFeature extends Mod implements HudMod {
 
     private double cachedSpeed = 0.0;
 
-    public SpeedometerFeature() {
+    public SpeedometerMod() {
         super(
                 new ModSpec("Speedometer", "speed")
                         .description("Displays your current movement speed")
@@ -40,7 +40,7 @@ public class SpeedometerFeature extends Mod implements HudMod {
     }
 
     // ---------------------------------------------------------------
-    // HudFeature
+    // HudMod
     // ---------------------------------------------------------------
 
     @Override
@@ -89,7 +89,7 @@ public class SpeedometerFeature extends Mod implements HudMod {
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override

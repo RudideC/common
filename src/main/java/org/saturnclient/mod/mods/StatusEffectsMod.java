@@ -14,7 +14,7 @@ import org.saturnclient.mod.ModSpec;
 import org.saturnclient.ui.RenderScope;
 
 /**
- * StatusEffectsFeature displays the player's active potion effects as
+ * StatusEffectsMod displays the player's active potion effects as
  * a HUD overlay.
  *
  * The effect list is supplied by the platform through an interface
@@ -22,12 +22,12 @@ import org.saturnclient.ui.RenderScope;
  * Until that is wired up, the existing {@link StatusEffectsInterface}
  * bridge is used, accessed via {@link ModuleProvider}.
  */
-public class StatusEffectsFeature extends Mod implements HudMod {
+public class StatusEffectsMod extends Mod implements HudMod {
 
     public static final BoolProperty enabled = Property.bool(false);
     private static final ModLayout layout = new ModLayout(60, 0);
 
-    public StatusEffectsFeature() {
+    public StatusEffectsMod() {
         super(
                 new ModSpec("Status Effects", "effect")
                         .description("Displays active status effects")
@@ -38,7 +38,7 @@ public class StatusEffectsFeature extends Mod implements HudMod {
     }
 
     // ---------------------------------------------------------------
-    // HudFeature
+    // HudMod
     // ---------------------------------------------------------------
 
     @Override
@@ -87,7 +87,7 @@ public class StatusEffectsFeature extends Mod implements HudMod {
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override

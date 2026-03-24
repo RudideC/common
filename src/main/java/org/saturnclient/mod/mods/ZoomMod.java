@@ -9,14 +9,14 @@ import org.saturnclient.mod.Mod;
 import org.saturnclient.mod.ModSpec;
 
 /**
- * ZoomFeature multiplies the camera's field-of-view to create an
+ * ZoomMod multiplies the camera's field-of-view to create an
  * optical-zoom effect.
  *
  * The FOV override is applied inside a mixin that polls
  * {@link #shouldZoom()} and {@link #getZoomLevel()} each frame.
  * No ModuleProvider is needed — there is no per-tick engine query.
  */
-public class ZoomFeature extends Mod {
+public class ZoomMod extends Mod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final BoolProperty toggle = Property.bool(false);
@@ -26,7 +26,7 @@ public class ZoomFeature extends Mod {
     /** Whether zoom is currently active (read by the FOV mixin). */
     public static boolean isZooming = false;
 
-    public ZoomFeature() {
+    public ZoomMod() {
         super(
                 new ModSpec("Zoom", "zoom")
                         .description("Zoom in for a closer view")
@@ -39,7 +39,7 @@ public class ZoomFeature extends Mod {
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override

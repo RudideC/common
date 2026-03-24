@@ -6,17 +6,17 @@ import org.saturnclient.mod.Mod;
 import org.saturnclient.mod.ModSpec;
 
 /**
- * NoFogFeature suppresses distance fog and (optionally) liquid fog.
+ * NoFogMod suppresses distance fog and (optionally) liquid fog.
  *
- * Like {@link FullbrightFeature}, the actual suppression is applied
+ * Like {@link FullbrightMod}, the actual suppression is applied
  * inside a mixin. This class owns the configuration and provides
  * static query methods the mixin calls.
  */
-public class NoFogFeature extends Mod {
+public class NoFogMod extends Mod {
 
     private static final BoolProperty enabled = Property.bool(false);
 
-    public NoFogFeature() {
+    public NoFogMod() {
         super(
                 new ModSpec("No Fog", "nofog")
                         .description("Stops fog from rendering")
@@ -31,7 +31,7 @@ public class NoFogFeature extends Mod {
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override

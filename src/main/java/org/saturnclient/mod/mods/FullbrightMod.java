@@ -7,7 +7,7 @@ import org.saturnclient.mod.Mod;
 import org.saturnclient.mod.ModSpec;
 
 /**
- * FullbrightFeature overrides the game's gamma/brightness to let the
+ * FullbrightMod overrides the game's gamma/brightness to let the
  * player see in complete darkness.
  *
  * Actual brightness injection happens in a mixin; this class owns only
@@ -16,12 +16,12 @@ import org.saturnclient.mod.ModSpec;
  * No ModuleProvider is needed — this feature has no per-tick engine
  * interaction; the mixin polls the static helpers directly.
  */
-public class FullbrightFeature extends Mod {
+public class FullbrightMod extends Mod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final IntProperty brightness = Property.integer(100);
 
-    public FullbrightFeature() {
+    public FullbrightMod() {
         super(
                 new ModSpec("Fullbright", "fullbright")
                         .description("Allows you to see in the dark")
@@ -50,7 +50,7 @@ public class FullbrightFeature extends Mod {
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override

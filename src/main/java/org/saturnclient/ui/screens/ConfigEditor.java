@@ -30,7 +30,7 @@ import org.saturnclient.ui.resources.Fonts;
 
 public class ConfigEditor extends SaturnScreen {
     private ConfigManager config;
-    private HudMod hudFeature;
+    private HudMod hudMod;
     private HudModPreview preview;
 
     public ConfigEditor(ConfigManager config) {
@@ -39,11 +39,11 @@ public class ConfigEditor extends SaturnScreen {
         this.config = config;
     }
 
-    public ConfigEditor(ConfigManager config, HudMod hudFeature) {
+    public ConfigEditor(ConfigManager config, HudMod hudMod) {
         super("Config Editor");
 
         this.config = config;
-        this.hudFeature = hudFeature;
+        this.hudMod = hudMod;
     }
 
     @Override
@@ -57,8 +57,8 @@ public class ConfigEditor extends SaturnScreen {
 
         int scrollWidth = 480 + 10 + (g * 2) + (p * 2);
 
-        if (this.hudFeature != null) {
-            this.preview = new HudModPreview(this.hudFeature);
+        if (this.hudMod != null) {
+            this.preview = new HudModPreview(this.hudMod);
         }
 
         draw(scroll.dimensions(scrollWidth, 350).center(width, height));
@@ -160,7 +160,7 @@ public class ConfigEditor extends SaturnScreen {
     @Override
     public void render(RenderScope renderScope, int mouseX, int mouseY, float delta, long elapsed) {
         if (this.preview != null) {
-            ModLayout layout = hudFeature.getDimensions();
+            ModLayout layout = hudMod.getDimensions();
             draw(this.preview
                     .dimensions(layout.width, (int) (layout.height * layout.scale.value * 2.0f))
                     .scale(1.0f) // Because the centering won't work properly

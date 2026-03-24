@@ -14,17 +14,17 @@ import org.saturnclient.mod.ModLayout;
 import org.saturnclient.mod.ModSpec;
 
 /**
- * ClockFeature displays the real-world time as a HUD element.
+ * ClockMod displays the real-world time as a HUD element.
  * No engine access is required; {@link LocalTime} is used directly.
  */
-public class ClockFeature extends Mod implements HudMod {
+public class ClockMod extends Mod implements HudMod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final SelectProperty format = Property.select(0, "24 hour", "12 hour");
     private static final BoolProperty showSeconds = Property.bool(false);
     private static final ModLayout layout = new ModLayout(60, Fonts.getHeight());
 
-    public ClockFeature() {
+    public ClockMod() {
         super(
                 new ModSpec("Clock", "clock")
                         .description("Displays the current real-world time")
@@ -37,7 +37,7 @@ public class ClockFeature extends Mod implements HudMod {
     }
 
     // ---------------------------------------------------------------
-    // HudFeature
+    // HudMod
     // ---------------------------------------------------------------
 
     @Override
@@ -74,7 +74,7 @@ public class ClockFeature extends Mod implements HudMod {
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override

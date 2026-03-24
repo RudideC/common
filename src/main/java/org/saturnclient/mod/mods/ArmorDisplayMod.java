@@ -12,18 +12,18 @@ import org.saturnclient.mod.ModSpec;
 import org.saturnclient.ui.RenderScope;
 
 /**
- * ArmorDisplayFeature renders the durability of the player's equipped
+ * ArmorDisplayMod renders the durability of the player's equipped
  * armor pieces (and optionally the main-hand item) as a HUD overlay.
  *
  * Engine access is provided exclusively through {@link ModuleProvider}.
  */
-public class ArmorDisplayFeature extends Mod implements HudMod {
+public class ArmorDisplayMod extends Mod implements HudMod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final BoolProperty useMainHand = Property.bool(true);
     private static final ModLayout layout = new ModLayout(40, 75);
 
-    public ArmorDisplayFeature() {
+    public ArmorDisplayMod() {
         super(
                 new ModSpec("Armor Display", "armor")
                         .description("Displays armor durability")
@@ -35,7 +35,7 @@ public class ArmorDisplayFeature extends Mod implements HudMod {
     }
 
     // ---------------------------------------------------------------
-    // HudFeature
+    // HudMod
     // ---------------------------------------------------------------
 
     @Override
@@ -103,7 +103,7 @@ public class ArmorDisplayFeature extends Mod implements HudMod {
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override

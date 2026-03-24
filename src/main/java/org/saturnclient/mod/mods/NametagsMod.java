@@ -8,7 +8,7 @@ import org.saturnclient.mod.Mod;
 import org.saturnclient.mod.ModSpec;
 
 /**
- * NametagsFeature modifies the nametags displayed above entities.
+ * NametagsMod modifies the nametags displayed above entities.
  *
  * Actual rendering is injected via a mixin; this class owns the
  * configuration and exposes two static query methods the mixin uses:
@@ -18,7 +18,7 @@ import org.saturnclient.mod.ModSpec;
  * No ModuleProvider is required here because the mixin passes the
  * already-resolved {@link EntityModule.EntityState} directly.
  */
-public class NametagsFeature extends Mod {
+public class NametagsMod extends Mod {
 
     // ---------------------------------------------------------------
     // Configuration
@@ -51,7 +51,7 @@ public class NametagsFeature extends Mod {
     // Constructor
     // ---------------------------------------------------------------
 
-    public NametagsFeature() {
+    public NametagsMod() {
         super(
                 new ModSpec("Nametags", "nametags")
                         .description("Allows you to modify entity nametags")
@@ -130,7 +130,7 @@ public class NametagsFeature extends Mod {
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override

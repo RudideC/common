@@ -12,18 +12,18 @@ import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
 
 /**
- * HealthDisplayFeature renders the player's current health as a HUD
+ * HealthDisplayMod renders the player's current health as a HUD
  * element, with configurable display modes (raw health vs. hearts) and
  * decimal precision.
  */
-public class HealthDisplayFeature extends Mod implements HudMod {
+public class HealthDisplayMod extends Mod implements HudMod {
 
     private static final BoolProperty enabled = Property.bool(false);
     private static final SelectProperty displayMode = Property.select(0, "Health", "Hearts");
     private static final SelectProperty decimals = Property.select(0, "0", "1", "2");
     private static final ModLayout layout = new ModLayout(40, 18);
 
-    public HealthDisplayFeature() {
+    public HealthDisplayMod() {
         super(
                 new ModSpec("Health Display", "health")
                         .description("Displays your current health")
@@ -36,7 +36,7 @@ public class HealthDisplayFeature extends Mod implements HudMod {
     }
 
     // ---------------------------------------------------------------
-    // HudFeature
+    // HudMod
     // ---------------------------------------------------------------
 
     @Override
@@ -71,7 +71,7 @@ public class HealthDisplayFeature extends Mod implements HudMod {
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override

@@ -3,6 +3,7 @@ package org.saturnclient.mod.mods;
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.config.property.BoolProperty;
 import org.saturnclient.config.property.Property;
+import org.saturnclient.config.property.SelectProperty;
 import org.saturnclient.mod.HudMod;
 import org.saturnclient.mod.Mod;
 import org.saturnclient.mod.ModLayout;
@@ -11,50 +12,69 @@ import org.saturnclient.ui.RenderScope;
 import org.saturnclient.ui.resources.Fonts;
 
 /**
- * PingFeature displays the current server round-trip time in
- * milliseconds as a HUD element.
+ * CoordinatesMod displays the player's current XYZ position as a
+ * HUD element with multiple configurable display formats.
  */
-public class PingFeature extends Mod implements HudMod {
+public class CoordinatesMod extends Mod implements HudMod {
 
     private static final BoolProperty enabled = Property.bool(false);
-    private static final ModLayout layout = new ModLayout(60, Fonts.getHeight());
+    private static final SelectProperty displayMethod = Property.select(0,
+            "Flat",
+            "Flat annotated",
+            "Newline",
+            "Newline annotated");
+    private static final ModLayout layout = new ModLayout(40, 18);
 
-    public PingFeature() {
+    public CoordinatesMod() {
         super(
-                new ModSpec("Ping Display", "ping")
-                        .description("Displays ping to the server")
+                new ModSpec("Coordinates", "coords")
+                        .description("Displays your current coordinates")
                         .version("v0.2.0")
                         .tags("Utility"),
                 enabled.named("Enabled"),
+                displayMethod.named("Display Method"),
                 layout.prop());
     }
 
     // ---------------------------------------------------------------
-    // HudFeature
+    // HudMod
     // ---------------------------------------------------------------
 
     @Override
     public void renderHud(RenderScope scope) {
-        renderPing(Providers.module.network().getPing(), scope);
+        renderCoords(
+                Providers.module.player().getX(),
+                Providers.module.player().getY(),
+                Providers.module.player().getZ(),
+                scope);
     }
 
     @Override
     public void renderDummy(RenderScope scope) {
-        renderPing(10, scope);
+        renderCoords(532, 69, 253, scope);
     }
 
     // ---------------------------------------------------------------
     // Rendering
     // ---------------------------------------------------------------
 
-    private void renderPing(int ping, RenderScope scope) {
-        String text = ping + " ms";
+    private void renderCoords(int x, int y, int z, RenderScope scope) {
+        String fmt = switch (displayMethod.value) {
+            case 1 -> "X: %d Y: %d Z: %d";
+            case 2 -> "%d\n%d\n%d";
+            case 3 -> "X: %d\nY: %d\nZ: %d";
+            default -> "%d %d %d";
+        };
+
+        String text = String.format(fmt, x, y, z);
         scope.drawText(text, 0, 0, layout.font.value, layout.fgColor.value);
+
         layout.width = Fonts.getWidth(text, layout.font.value);
+        layout.height = 18 * text.split("\n").length;
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override

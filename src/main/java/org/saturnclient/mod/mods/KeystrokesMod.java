@@ -12,10 +12,10 @@ import org.saturnclient.common.module.PlayerModule;
 import org.saturnclient.ui.RenderScope;
 
 /**
- * KeystrokesFeature renders the WASD / mouse / space key states as an
+ * KeystrokesMod renders the WASD / mouse / space key states as an
  * on-screen overlay.
  */
-public class KeystrokesFeature extends Mod implements HudMod {
+public class KeystrokesMod extends Mod implements HudMod {
 
     // ---------------------------------------------------------------
     // Configuration
@@ -46,7 +46,7 @@ public class KeystrokesFeature extends Mod implements HudMod {
 
     private boolean w, a, s, d, lmb, rmb, space;
 
-    public KeystrokesFeature() {
+    public KeystrokesMod() {
         super(
                 new ModSpec("Keystrokes", "keystrokes")
                         .description("Displays movement keystrokes")
@@ -62,7 +62,7 @@ public class KeystrokesFeature extends Mod implements HudMod {
     }
 
     // ---------------------------------------------------------------
-    // Feature contract
+    // Mod contract
     // ---------------------------------------------------------------
 
     @Override
