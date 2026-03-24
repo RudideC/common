@@ -31,7 +31,8 @@ public class SpeedometerMod extends Mod implements HudMod {
                 new ModSpec("Speedometer", "speed")
                         .description("Displays your current movement speed")
                         .version("v0.2.0")
-                        .tags("Utility"),
+                        .tags("Utility")
+                        .requires(Providers.feature::player),
                 enabled.named("Enabled"),
                 axis.named("Speed type"),
                 unitText.named("Unit text"),

@@ -32,7 +32,8 @@ public class StatusEffectsMod extends Mod implements HudMod {
                 new ModSpec("Status Effects", "effect")
                         .description("Displays active status effects")
                         .version("v0.2.0")
-                        .tags("Utility"),
+                        .tags("Utility")
+                        .requires(Providers.feature::player),
                 enabled.named("Enabled"),
                 layout.prop());
     }

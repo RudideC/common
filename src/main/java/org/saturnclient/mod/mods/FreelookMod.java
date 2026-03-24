@@ -31,7 +31,8 @@ public class FreelookMod extends Mod {
                 new ModSpec("Freelook", "freelook")
                         .description("Look around freely without moving your character")
                         .tags("Movement", "Camera")
-                        .version("v0.2.0"),
+                        .version("v0.2.0")
+                        .requires(Providers.feature::render),
                 enabled.named("Enabled"),
                 toggle.named("Toggle freelook"),
                 freelookKey.named("Freelook Keybinding"));

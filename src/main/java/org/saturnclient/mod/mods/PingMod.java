@@ -24,7 +24,8 @@ public class PingMod extends Mod implements HudMod {
                 new ModSpec("Ping Display", "ping")
                         .description("Displays ping to the server")
                         .version("v0.2.0")
-                        .tags("Utility"),
+                        .tags("Utility")
+                        .requires(Providers.feature::network),
                 enabled.named("Enabled"),
                 layout.prop());
     }

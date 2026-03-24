@@ -25,7 +25,8 @@ public class FpsMod extends Mod implements HudMod {
                 new ModSpec("FPS Display", "fps")
                         .description("Displays current FPS")
                         .version("v0.2.0")
-                        .tags("Utility"),
+                        .tags("Utility")
+                        .requires(Providers.feature::render),
                 enabled.named("Enabled"),
                 layout.prop());
     }

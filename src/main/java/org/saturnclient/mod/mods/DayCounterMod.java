@@ -25,7 +25,8 @@ public class DayCounterMod extends Mod implements HudMod {
                 new ModSpec("Day Counter", "day")
                         .description("Displays the number of in-game days elapsed")
                         .version("v0.2.0")
-                        .tags("Utility"),
+                        .tags("Utility")
+                        .requires(Providers.feature::world),
                 enabled.named("Enabled"),
                 layout.prop());
     }

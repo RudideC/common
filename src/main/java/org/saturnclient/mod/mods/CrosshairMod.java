@@ -24,7 +24,8 @@ public class CrosshairMod extends Mod {
                 new ModSpec("Crosshair", "crosshair")
                         .description("Changes the crosshair when aiming at an entity")
                         .tags("Visuals", "Utility")
-                        .version("v0.2.0"),
+                        .version("v0.2.0")
+                        .requires(Providers.feature::player, Providers.feature::render, Providers.feature::entity),
                 enabled.named("Enabled"));
     }
 

@@ -21,7 +21,8 @@ public class AutoSprintMod extends Mod {
                 new ModSpec("Auto Sprint", "sprint")
                         .description("Makes the player always sprint")
                         .tags("Movement")
-                        .version("v0.2.0"),
+                        .version("v0.2.0")
+                        .requires(Providers.feature::player, Providers.feature::network),
                 enabled.named("Enabled"));
     }
 

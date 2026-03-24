@@ -28,7 +28,8 @@ public class HealthDisplayMod extends Mod implements HudMod {
                 new ModSpec("Health Display", "health")
                         .description("Displays your current health")
                         .version("v0.2.0")
-                        .tags("Utility"),
+                        .tags("Utility")
+                        .requires(Providers.feature::player),
                 enabled.named("Enabled"),
                 displayMode.named("Display mode"),
                 decimals.named("Decimals"),

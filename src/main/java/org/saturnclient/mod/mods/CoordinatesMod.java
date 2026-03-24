@@ -30,7 +30,8 @@ public class CoordinatesMod extends Mod implements HudMod {
                 new ModSpec("Coordinates", "coords")
                         .description("Displays your current coordinates")
                         .version("v0.2.0")
-                        .tags("Utility"),
+                        .tags("Utility")
+                        .requires(Providers.feature::player),
                 enabled.named("Enabled"),
                 displayMethod.named("Display Method"),
                 layout.prop());

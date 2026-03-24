@@ -51,7 +51,8 @@ public class KeystrokesMod extends Mod implements HudMod {
                 new ModSpec("Keystrokes", "keystrokes")
                         .description("Displays movement keystrokes")
                         .version("v0.2.0")
-                        .tags("Utility"),
+                        .tags("Utility")
+                        .requires(Providers.feature::player),
                 enabled.named("Enabled"),
                 showMouse.named("Show mouse clicks"),
                 showSpace.named("Show space"),
