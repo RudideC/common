@@ -24,7 +24,7 @@ public class ImageTexture extends Element {
             int renderHeight = (int) (height * client.getWindow().getFramebufferHeight()
                     / client.getWindow().getHeight());
 
-            IdentifierRef pngId = SvgTexture.getSvg(client, sprite, renderWidth * 2, renderHeight * 2);
+            IdentifierRef pngId = SvgTexture.getSvg(sprite, renderWidth * 2, renderHeight * 2);
 
             this.sprite = pngId;
             if (pngId == null) {

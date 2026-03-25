@@ -12,7 +12,6 @@ import com.kitfox.svg.SVGUniverse;
 
 import org.saturnclient.common.provider.Providers;
 import org.saturnclient.common.ref.asset.IdentifierRef;
-import org.saturnclient.common.ref.game.MinecraftClientRef;
 
 public class SvgTexture {
 
@@ -50,22 +49,33 @@ public class SvgTexture {
         return image;
     }
 
-    public static IdentifierRef getSvg(MinecraftClientRef client, IdentifierRef svgImage, int width, int height) {
-        IdentifierRef id = IdentifierRef
-                .of(svgImage.toString().replaceAll("\\.svg$", (width + "_" + height).toString() + ".png"));
-
-        if (svgCache.contains(id)) {
-            return id;
+    public static IdentifierRef getSvg(InputStream stream, IdentifierRef output, int width, int height) {
+        if (svgCache.contains(output)) {
+            return output;
         }
 
-        try (InputStream svgStream = client.getResource(svgImage)) {
+        try {
+            BufferedImage image = renderSvg(stream, width, height);
+            Providers.saturn.registerBufferedImageTexture(output, image);
+            svgCache.add(output);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
 
-            BufferedImage image = renderSvg(svgStream, width, height);
+        return output;
+    }
 
-            Providers.saturn.registerBufferedImageTexture(id, image);
+    public static IdentifierRef getSvg(IdentifierRef svgImage, int width, int height) {
+        IdentifierRef output = IdentifierRef
+                .of(svgImage.toString().replaceAll("\\.svg$", (width + "_" + height).toString() + ".png"));
 
-            return id;
+        if (svgCache.contains(output)) {
+            return output;
+        }
 
+        try (InputStream svgStream = Providers.saturn.getClient().getResource(svgImage)) {
+            return getSvg(svgStream, output, width, height);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

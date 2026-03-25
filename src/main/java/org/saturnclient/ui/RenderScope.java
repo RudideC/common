@@ -1,9 +1,14 @@
 package org.saturnclient.ui;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+
 import org.saturnclient.common.ref.asset.IdentifierRef;
 import org.saturnclient.common.ref.asset.SpriteRef;
 import org.saturnclient.common.ref.game.ItemStackRef;
 import org.saturnclient.common.ref.render.MatrixStackRef;
+import org.saturnclient.ui.resources.SvgTexture;
 
 public interface RenderScope {
 
@@ -24,7 +29,25 @@ public interface RenderScope {
     // ----------------------------
     void drawRectangle(int x, int y, int width, int height, int color);
 
-    void drawRoundedRectangle(int x, int y, int width, int height, int radius, int color);
+    default void drawRoundedRectangle(int x, int y, int width, int height, int radius, int color) {
+        if (color == 0)
+            return;
+        radius = Math.min(radius, Math.min(width, height));
+
+        String svg = String.format(
+                "<svg xmlns='http://www.w3.org/2000/svg' width='%d' height='%d'>" +
+                        "<rect width='%d' height='%d' rx='%d' ry='%d' fill='white'/>" +
+                        "</svg>",
+                width, height,
+                width, height,
+                radius, radius);
+
+        InputStream svgStream = new ByteArrayInputStream(svg.getBytes(StandardCharsets.UTF_8));
+
+        drawTexture(SvgTexture.getSvg(svgStream,
+                IdentifierRef.ofSaturn("textures/gui/tmp_rect/rounded_" + width + "_" + height + "_" + radius),
+                width * 3, height * 3), x, y, 0, 0, width, height, color);
+    }
 
     void drawBorder(int x, int y, int width, int height, int color);
 
