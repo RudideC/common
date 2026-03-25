@@ -24,7 +24,6 @@ public interface RenderScope {
 
         public int getScaledWindowHeight();
 
-        /* Saturn common sprites */
         public void drawTexture(IdentifierRef sprite, int x, int y, float u, float v, int width, int height,
                         int color);
 
@@ -44,25 +43,15 @@ public interface RenderScope {
 
         public boolean scissorContains(int x, int y);
 
-        public void draw();
-
         public void drawItem(ItemStackRef item, int x, int y);
 
-        public void drawItem(ItemStackRef stack, int x, int y, int seed);
-
-        public void drawItem(ItemStackRef stack, int x, int y, int seed, int z);
-
         public void drawItemWithoutEntity(ItemStackRef stack, int x, int y);
-
-        public void drawItemWithoutEntity(ItemStackRef stack, int x, int y, int seed);
 
         public void drawSpriteStretched(SpriteRef sprite, int x, int y, int width, int height);
 
         public void drawSpriteStretched(SpriteRef sprite, int x, int y, int width, int height, int color);
 
         public void fill(int x1, int y1, int x2, int y2, int color);
-
-        public void fill(int x1, int y1, int x2, int y2, int z, int color);
 
         public void drawBorder(int x, int y, int width, int height, int color);
 }

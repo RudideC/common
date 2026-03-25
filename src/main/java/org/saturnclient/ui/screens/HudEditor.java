@@ -95,8 +95,8 @@ public class HudEditor extends SaturnScreen {
             MatrixStackRef matrices = renderScope.getMatrixStack();
             matrices.push();
 
-            matrices.translate(dim.x.value, dim.y.value, 0);
-            matrices.scale(dim.scale.value, dim.scale.value, 1.0f);
+            matrices.translate(dim.x.value, dim.y.value);
+            matrices.scale(dim.scale.value, dim.scale.value);
 
             // Render the mod
             mod.renderDummy(renderScope);

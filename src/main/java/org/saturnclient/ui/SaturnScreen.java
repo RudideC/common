@@ -51,7 +51,7 @@ public abstract class SaturnScreen {
     public void render(RenderScope renderScope, int mouseX, int mouseY, float delta, long elapsed) {
         renderScope.getMatrixStack().push();
 
-        renderScope.getMatrixStack().scale(0.5f, 0.5f, 0.5f);
+        renderScope.getMatrixStack().scale(0.5f, 0.5f);
 
         ElementRenderer.render(new ArrayList<>(elements), elapsed, renderScope, mouseX, mouseY);
 

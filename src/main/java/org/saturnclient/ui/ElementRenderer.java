@@ -20,8 +20,8 @@ public class ElementRenderer {
 
             renderScope.getMatrixStack().push();
             renderScope.setOpacity(element.opacity);
-            renderScope.getMatrixStack().translate(element.x, element.y, 0);
-            renderScope.getMatrixStack().scale(element.scale, element.scale, 1.0f);
+            renderScope.getMatrixStack().translate(element.x, element.y);
+            renderScope.getMatrixStack().scale(element.scale, element.scale);
             element.render(renderScope, new ElementContext(elapsed, mouseX, mouseY, element));
             renderScope.getMatrixStack().pop();
         }

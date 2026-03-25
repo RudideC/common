@@ -39,7 +39,7 @@ public class Scroll extends Element {
 
         renderScope.enableScissor(padding, padding, width - padding, height - padding);
         renderScope.getMatrixStack().push();
-        renderScope.getMatrixStack().translate(padding, -scroll + padding, 0);
+        renderScope.getMatrixStack().translate(padding, -scroll + padding);
 
         ElementRenderer.render(children, ctx.elapsed, renderScope,
                 ctx.mouseX - padding,
