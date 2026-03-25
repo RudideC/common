@@ -153,7 +153,7 @@ public class KeystrokesMod extends Mod implements HudMod {
         int fg = pressed ? clickFg.value : layout.fgColor.value;
         scope.drawRoundedRectangle(x, y, layout.width, SPACE_H, layout.radius.value, bg);
         int lineY = y + SPACE_H / 2;
-        scope.drawRect(x + (layout.width - 30) / 2, lineY, 30, 1, fg);
+        scope.drawRectangle(x + (layout.width - 30) / 2, lineY, 30, 1, fg);
     }
 
     private void refreshHeight() {

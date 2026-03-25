@@ -76,7 +76,7 @@ public abstract class Input extends Element {
                     (int) (Fonts.getWidth(visibleText.substring(0, cursorPosition - scrollOffset), Theme.FONT.value)
                             * 0.6f);
 
-            renderScope.drawRect(cursorX, 2, 1, height - 4, 0xFFFFFFFF);
+            renderScope.drawRectangle(cursorX, 2, 1, height - 4, 0xFFFFFFFF);
         }
     }
 

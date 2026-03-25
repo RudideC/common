@@ -6,52 +6,74 @@ import org.saturnclient.common.ref.game.ItemStackRef;
 import org.saturnclient.common.ref.render.MatrixStackRef;
 
 public interface RenderScope {
-        public MatrixStackRef getMatrixStack();
 
-        public void setOpacity(float alpha);
+    // ----------------------------
+    // Matrix & Transform
+    // ----------------------------
+    MatrixStackRef getMatrixStack();
 
-        public int getColor(int color);
+    // ----------------------------
+    // Color & Opacity
+    // ----------------------------
+    void setOpacity(float alpha);
 
-        public void drawRect(int x, int y, int width, int height, int color);
+    int getColor(int color);
 
-        public void drawText(String text, int x, int y, int font, int color);
+    // ----------------------------
+    // Shapes
+    // ----------------------------
+    void drawRectangle(int x, int y, int width, int height, int color);
 
-        public void drawText(float scale, String text, int x, int y, int font, int color);
+    void drawRoundedRectangle(int x, int y, int width, int height, int radius, int color);
 
-        public void drawRoundedRectangle(int x, int y, int width, int height, int radius, int color);
+    void drawBorder(int x, int y, int width, int height, int color);
 
-        public int getScaledWindowWidth();
+    void fill(int x1, int y1, int x2, int y2, int color);
 
-        public int getScaledWindowHeight();
+    // ----------------------------
+    // Text
+    // ----------------------------
+    void drawText(String text, int x, int y, int font, int color);
 
-        public void drawTexture(IdentifierRef sprite, int x, int y, float u, float v, int width, int height,
-                        int color);
+    void drawText(float scale, String text, int x, int y, int font, int color);
 
-        public void drawTexture(IdentifierRef sprite, int x, int y, float u, float v, int width, int height);
+    // ----------------------------
+    // Textures & Sprites
+    // ----------------------------
+    void drawTexture(IdentifierRef sprite, int x, int y, float u, float v, int width, int height);
 
-        public void drawTexture(IdentifierRef sprite, int x, int y, float u, float v, int width, int height,
-                        int regionWith,
-                        int regionHeight, int textureWidth, int textureHeight);
+    void drawTexture(IdentifierRef sprite, int x, int y, float u, float v, int width, int height, int color);
 
-        public void drawTexture(IdentifierRef sprite, int x, int y, float u, float v, int width, int height,
-                        int regionWidth,
-                        int regionHeight, int textureWidth, int textureHeight, int color);
+    void drawTexture(IdentifierRef sprite, int x, int y, float u, float v, int width, int height,
+            int regionWidth, int regionHeight, int textureWidth, int textureHeight);
 
-        public void enableScissor(int x1, int y1, int x2, int y2);
+    void drawTexture(IdentifierRef sprite, int x, int y, float u, float v, int width, int height,
+            int regionWidth, int regionHeight, int textureWidth, int textureHeight, int color);
 
-        public void disableScissor();
+    void drawSpriteStretched(SpriteRef sprite, int x, int y, int width, int height);
 
-        public boolean scissorContains(int x, int y);
+    void drawSpriteStretched(SpriteRef sprite, int x, int y, int width, int height, int color);
 
-        public void drawItem(ItemStackRef item, int x, int y);
+    // ----------------------------
+    // Items
+    // ----------------------------
+    void drawItem(ItemStackRef item, int x, int y);
 
-        public void drawItemWithoutEntity(ItemStackRef stack, int x, int y);
+    // ----------------------------
+    // Scissor / Clipping
+    // ----------------------------
+    void enableScissor(int x1, int y1, int x2, int y2);
 
-        public void drawSpriteStretched(SpriteRef sprite, int x, int y, int width, int height);
+    void disableScissor();
 
-        public void drawSpriteStretched(SpriteRef sprite, int x, int y, int width, int height, int color);
+    boolean scissorContains(int x, int y);
 
-        public void fill(int x1, int y1, int x2, int y2, int color);
+    // ----------------------------
+    // Window Info / Draw
+    // ----------------------------
+    int getScaledWindowWidth();
 
-        public void drawBorder(int x, int y, int width, int height, int color);
+    int getScaledWindowHeight();
+
+    void draw();
 }
